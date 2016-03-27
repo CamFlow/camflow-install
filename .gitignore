@@ -28,5 +28,14 @@
 *.x86_64
 *.hex
 
+#temp files
+*~
+*.txt
+*.db
+*.tmp
+
+#build directory
+build/*
+
 # Debug files
 *.dSYM/
