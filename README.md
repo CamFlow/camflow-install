@@ -31,8 +31,15 @@ make all
 ```
 
 This will build and install the CamFlow Linux Security Modules as well as the userspace tools.
+The whole installation procedure take a huge amount of time.
+The installation process may ask for root password during the process.
 It is also possible to install a particular version as follow:
 
 ``` shell
 make v0.1.0 # replace v0.1.0 by the desired version
 ```
+
+Early during the process, the kernel configuration menu should appear.
+Under the security tab, select Provenance and IFC from the list.
+
+![Instalation menu](https://octodex.github.com/images/yaktocat.png)
