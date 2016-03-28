@@ -41,5 +41,8 @@ make v0.1.0 # replace v0.1.0 by the desired version
 
 Early during the process, the kernel configuration menu should appear.
 Under the security tab, select Provenance and IFC from the list.
+It should look like this:
 
-![Instalation menu](https://octodex.github.com/images/yaktocat.png)
+![Instalation menu](https://raw.githubusercontent.com/CamFlow/camflow-install/master/img/install.png)
+
+Note that CamFlow run perfectly fine alongside SELinux.
