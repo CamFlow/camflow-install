@@ -5,9 +5,10 @@ It may work with other distribution but there is no guarantee.
 
 ## Versions
 
-| CamFlow version | Kernel version | Note            | Date       |
-| --------------- |----------------| --------------- | ---------- |
-| 0.1.0           | 4.2.8          | Initial release | 28/03/2016 |
+| CamFlow version | Kernel version | Date       |
+| --------------- |----------------| ---------- |
+| 0.1.0           | 4.2.8          | 28/03/2016 |
+| 0.1.1           | 4.4.6          | n/a        |
 
 CamFlow's source code can be found [here](https://github.com/camflow/camflow-dev).
 
@@ -22,7 +23,7 @@ For more details please visit [here](https://github.com/camflow/camflow-dev).
 
 ``` shell
 sudo dnf groupinstall 'Development Tools'
-sudo dnf install ncurses-devel cmake clang gcc-c++ wget git
+sudo dnf install ncurses-devel cmake clang gcc-c++ wget git openssl-devel
 ```
 ## Building and installing CamFlow
 
