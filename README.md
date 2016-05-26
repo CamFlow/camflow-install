@@ -7,6 +7,7 @@ It may work with other distributions but there is no guarantee.
 
 | CamFlow version | Kernel version | Date       |
 | --------------- |----------------| ---------- |
+| 0.1.2           | 4.4.6          | 26/05/2016 |
 | 0.1.1           | 4.4.6          | 03/04/2016 |
 | 0.1.0           | 4.2.8          | 28/03/2016 |
 
@@ -37,7 +38,7 @@ The installation process may ask for root password during the process.
 It is also possible to install a particular version as follows:
 
 ``` shell
-make v0.1.0 # replace v0.1.0 by the desired version
+make v0.1.2 # replace v0.1.0 by the desired version
 ```
 
 Early during the process, the kernel configuration menu should appear.
