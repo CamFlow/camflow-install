@@ -8,7 +8,7 @@ CamFlow's source code and patch notes can be found [here](https://github.com/cam
 ## Limitations
 
 CamFlow is not yet feature complete ([please visit](http://camflow.org/)).
-Release 0.1.0 does not support persistence of security context across reboot, lacks proper userspace management tools, audit format is unconsistent and the code is probably buggy;).
+Release 0.1.2 does not support persistence of security context across reboot, lacks proper userspace management tools, audit format is unconsistent and the code is probably buggy;).
 However, we are working hard and this should improve in the future.
 For more details please visit [here](https://github.com/camflow/camflow-dev).
 
