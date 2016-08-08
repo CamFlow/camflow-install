@@ -1,17 +1,22 @@
 v0.1.0: lsm-version=v0.1.0
-v0.1.0: provenance-version=v0.1.0 #user space version number not need to be identical to LSM
-v0.1.0: ifc-version=v0.1.0 #user space version number not need to be identical to LSM
+v0.1.0: provenance-version=v0.1.0 #user space version number need not to be identical to LSM
+v0.1.0: ifc-version=v0.1.0 #user space version number need not to be identical to LSM
 
 v0.1.1: lsm-version=v0.1.1
-v0.1.1: provenance-version=v0.1.1 #user space version number not need to be identical to LSM
-v0.1.1: ifc-version=v0.1.1 #user space version number not need to be identical to LSM
+v0.1.1: provenance-version=v0.1.1 #user space version number need not to be identical to LSM
+v0.1.1: ifc-version=v0.1.1 #user space version number need not to be identical to LSM
 
 v0.1.2: lsm-version=v0.1.2
-v0.1.2: provenance-version=v0.1.2 #user space version number not need to be identical to LSM
-v0.1.2: ifc-version=v0.1.2 #user space version number not need to be identical to LSM
-v0.1.2: config-version=v0.1.0 #user space version number not need to be identical to LSM
+v0.1.2: provenance-version=v0.1.2 #user space version number need not to be identical to LSM
+v0.1.2: ifc-version=v0.1.2 #user space version number need not to be identical to LSM
+v0.1.2: config-version=v0.1.0 #user space version number need not to be identical to LSM
 
-all: v0.1.2
+v0.1.3: lsm-version=v0.1.3
+v0.1.3: provenance-version=v0.1.3 #user space version number need not to be identical to LSM
+v0.1.3: ifc-version=v0.1.2 #user space version number need not to be identical to LSM
+v0.1.3: config-version=v0.1.0 #user space version number need not to be identical to LSM
+
+all: v0.1.3
 
 prepare:
 	@echo "Building CamFlow ${lsm-version}, this may take a while and require root password."
@@ -93,3 +98,5 @@ v0.1.0: old_prepare config old_compile old_install
 v0.1.1: old_prepare config old_compile old_install
 
 v0.1.2: prepare config compile install
+
+v0.1.3: prepare config compile install
