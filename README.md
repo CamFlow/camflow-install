@@ -3,14 +3,6 @@
 CamFlow has been built and tested with Fedora 23 ([Download here](https://getfedora.org/)).
 It may work with other distributions but there is no guarantee.
 
-## Versions
-
-| CamFlow version | Kernel version | Date       |
-| --------------- |----------------| ---------- |
-| 0.1.2           | 4.4.6          | 26/05/2016 |
-| 0.1.1           | 4.4.6          | 03/04/2016 |
-| 0.1.0           | 4.2.8          | 28/03/2016 |
-
 CamFlow's source code and patch notes can be found [here](https://github.com/camflow/camflow-dev).
 
 ## Limitations
@@ -47,4 +39,13 @@ It should look like this:
 
 ![Instalation menu](https://raw.githubusercontent.com/CamFlow/camflow-install/master/img/install.png)
 
-Note that CamFlow runs perfectly fine alongside SELinux.
+Note that CamFlow can run alongside SELinux or other security modules.
+
+## Versions
+
+| CamFlow version | Kernel version | Date       |
+| --------------- |----------------| ---------- |
+| 0.1.3           | 4.4.6          | 08/08/2016 |
+| 0.1.2           | 4.4.6          | 26/05/2016 |
+| 0.1.1           | 4.4.6          | 03/04/2016 |
+| 0.1.0           | 4.2.8          | 28/03/2016 |
