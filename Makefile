@@ -17,7 +17,7 @@ v0.1.3: ifc-version=v0.1.2 #user space version number need not to be identical t
 v0.1.3: config-version=v0.1.0 #user space version number need not to be identical to LSM
 
 v0.1.4: lsm-version=v0.1.4
-v0.1.4: provenance-version=v0.1.4 #user space version number need not to be identical to LSM
+v0.1.4: provenance-version=v0.1.5 #user space version number need not to be identical to LSM
 v0.1.4: ifc-version=v0.1.3 #user space version number need not to be identical to LSM
 v0.1.4: config-version=v0.1.0 #user space version number need not to be identical to LSM
 
