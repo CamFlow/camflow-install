@@ -21,7 +21,12 @@ v0.1.4: provenance-version=v0.1.5 #user space version number need not to be iden
 v0.1.4: ifc-version=v0.1.3 #user space version number need not to be identical to LSM
 v0.1.4: config-version=v0.1.0 #user space version number need not to be identical to LSM
 
-all: v0.1.4
+v0.1.5: lsm-version=v0.1.5
+v0.1.5: provenance-version=v0.1.6 #user space version number need not to be identical to LSM
+v0.1.5: ifc-version=v0.1.3 #user space version number need not to be identical to LSM
+v0.1.5: config-version=v0.1.1 #user space version number need not to be identical to LSM
+
+all: v0.1.5
 
 prepare:
 	@echo "Building CamFlow ${lsm-version}, this may take a while and require root password."
@@ -107,3 +112,5 @@ v0.1.2: prepare config compile install
 v0.1.3: prepare config compile install
 
 v0.1.4: prepare config compile install
+
+v0.1.5: prepare config compile install
