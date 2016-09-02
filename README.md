@@ -16,7 +16,7 @@ For more details please visit [here](https://github.com/camflow/camflow-dev).
 
 ``` shell
 sudo dnf groupinstall 'Development Tools'
-sudo dnf install ncurses-devel cmake clang gcc-c++ wget git openssl-devel
+sudo dnf install ncurses-devel cmake clang gcc-c++ wget git openssl-devel zlib
 ```
 ## Building and installing CamFlow
 
