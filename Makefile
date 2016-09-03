@@ -58,8 +58,6 @@ compile:
 	cd ./build/camflow-ifc-lib && $(MAKE) all
 	@echo "Building provenance library ..."
 	cd ./build/camflow-provenance-lib && $(MAKE) all
-	@echo "Building configuration service ..."
-	cd ./build/camflow-config && $(MAKE) all
 
 install:
 	@echo "Installing kernel ..."
@@ -68,6 +66,8 @@ install:
 	cd ./build/camflow-ifc-lib && $(MAKE) install
 	@echo "Installing provenance library ..."
 	cd ./build/camflow-provenance-lib && $(MAKE) install
+	@echo "Building configuration service ..."
+	cd ./build/camflow-config && $(MAKE) all
 	@echo "Installing configuration service ..."
 	cd ./build/camflow-config && $(MAKE) install
 
