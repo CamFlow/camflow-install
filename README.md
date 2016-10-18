@@ -17,7 +17,7 @@ sudo dnf groupinstall 'Development Tools'
 sudo dnf install ncurses-devel cmake clang gcc-c++ wget git openssl-devel zlib
 ```
 
-**WARNING**: package name and package manager may vary across distribution.
+**WARNING**: package names and the package manager may vary across distribution.
 Please refer to your distribution documentation for the equivalent packages.
 
 ## Building and installing CamFlow
