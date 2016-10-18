@@ -8,8 +8,6 @@ CamFlow's source code and patch notes can be found [here](https://github.com/cam
 ## Limitations
 
 CamFlow is not yet feature complete ([please visit](http://camflow.org/)).
-Release 0.1.0 does not support persistence of security context across reboot, lacks proper userspace management tools, audit format is unconsistent and the code is probably buggy;).
-However, we are working hard and this should improve in the future.
 For more details please visit [here](https://github.com/camflow/camflow-dev).
 
 ## Installing dependencies
@@ -18,6 +16,10 @@ For more details please visit [here](https://github.com/camflow/camflow-dev).
 sudo dnf groupinstall 'Development Tools'
 sudo dnf install ncurses-devel cmake clang gcc-c++ wget git openssl-devel zlib
 ```
+
+**WARNING**: package name and package manager may vary across distribution.
+Please refer to your distribution documentation for the equivalent packages.
+
 ## Building and installing CamFlow
 
 ``` shell
@@ -34,7 +36,7 @@ make v0.1.0 # replace v0.1.0 by the desired version
 ```
 
 Early during the process, the kernel configuration menu should appear.
-Under the security tab, select Provenance and IFC from the list.
+Under the security tab, select `CamFlow - Provenance` from the list.
 It should look like this:
 
 ![Instalation menu](https://raw.githubusercontent.com/CamFlow/camflow-install/master/img/install.png)
