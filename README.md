@@ -7,8 +7,7 @@ CamFlow's source code and patch notes can be found [here](https://github.com/cam
 
 ## Limitations
 
-CamFlow is not yet feature complete ([please visit](http://camflow.org/)).
-For more details please visit [here](https://github.com/camflow/camflow-dev).
+CamFlow is not yet feature complete ([please visit](http://camflow.org/) for more information).
 
 ## Installing dependencies
 
