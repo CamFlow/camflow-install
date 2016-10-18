@@ -43,6 +43,12 @@ It should look like this:
 
 Note that CamFlow can run alongside SELinux or other security modules.
 
+**WARNING:** You need to reboot your machine after installation.
+
+``` shell
+sudo reboot now
+```
+
 ## Versions
 
 | CamFlow version | Kernel version | Date       |
