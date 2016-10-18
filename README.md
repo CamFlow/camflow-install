@@ -1,13 +1,13 @@
 # Getting started with CamFlow
 
 CamFlow has been built and tested with Fedora 23 ([Download here](https://getfedora.org/)).
-It may work with other distributions but there is no guarantee.
+CamFlow should work with other Linux distributions, but we make no guarantee.
 
 CamFlow's source code and patch notes can be found [here](https://github.com/camflow/camflow-dev).
 
 ## Limitations
 
-CamFlow is not yet feature complete ([please visit](http://camflow.org/) for more information).
+CamFlow is not yet feature complete, please visit [our website](http://camflow.org/) for more information.
 
 ## Installing dependencies
 
