@@ -8,8 +8,6 @@ CamFlow's source code and patch notes can be found [here](https://github.com/cam
 ## Limitations
 
 CamFlow is not yet feature complete ([please visit](http://camflow.org/)).
-Release 0.1.0 does not support persistence of security context across reboot, lacks proper userspace management tools, audit format is unconsistent and the code is probably buggy;).
-However, we are working hard and this should improve in the future.
 For more details please visit [here](https://github.com/camflow/camflow-dev).
 
 ## Installing dependencies
@@ -26,20 +24,17 @@ make all
 
 This will build and install the CamFlow Linux Security Modules as well as the userspace tools.
 The whole installation procedure may take a huge amount of time.
-The installation process may ask for root password during the process.
-It is also possible to install a particular version as follows:
-
-``` shell
-make v0.1.0 # replace v0.1.0 by the desired version
-```
+The installation process may ask for root password.
 
 Early during the process, the kernel configuration menu should appear.
-Under the security tab, select Provenance and IFC from the list.
+Under the security tab, select `CamFlow - Provenance` from the list.
 It should look like this:
 
 ![Instalation menu](https://raw.githubusercontent.com/CamFlow/camflow-install/master/img/install.png)
 
 Note that CamFlow can run alongside SELinux or other security modules.
+
+Once the installation process is
 
 ## Versions
 
@@ -53,3 +48,8 @@ Note that CamFlow can run alongside SELinux or other security modules.
 | 0.1.2           | 4.4.6          | 26/05/2016 |
 | 0.1.1           | 4.4.6          | 03/04/2016 |
 | 0.1.0           | 4.2.8          | 28/03/2016 |
+
+It is possible to install a particular version as follows:
+``` shell
+make v0.1.0 # replace v0.1.0 by the desired version
+```
