@@ -45,6 +45,7 @@ Note that CamFlow can run alongside SELinux or other security modules.
 
 | CamFlow version | Kernel version | Date       |
 | --------------- |----------------| ---------- |
+| 0.1.7           | 4.4.23         | 04/10/2016 |
 | 0.1.6           | 4.4.21         | 19/09/216  |
 | 0.1.5           | 4.4.19         | 02/09/216  |
 | 0.1.4           | 4.4.16         | 18/08/2016 |
