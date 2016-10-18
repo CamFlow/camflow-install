@@ -16,6 +16,10 @@ For more details please visit [here](https://github.com/camflow/camflow-dev).
 sudo dnf groupinstall 'Development Tools'
 sudo dnf install ncurses-devel cmake clang gcc-c++ wget git openssl-devel zlib
 ```
+
+**WARNING**: package names and the package manager may vary across distribution.
+Please refer to your distribution documentation for the equivalent packages.
+
 ## Building and installing CamFlow
 
 ``` shell
@@ -34,7 +38,11 @@ It should look like this:
 
 Note that CamFlow can run alongside SELinux or other security modules.
 
-Once the installation process is
+**WARNING:** You need to reboot your machine after installation.
+
+``` shell
+sudo reboot now
+```
 
 ## Versions
 
