@@ -13,7 +13,7 @@ CamFlow is not yet feature complete, please visit [our website](http://camflow.o
 
 ``` shell
 sudo dnf groupinstall 'Development Tools'
-sudo dnf install ncurses-devel cmake clang gcc-c++ wget git openssl-devel zlib
+sudo dnf install ncurses-devel cmake clang gcc-c++ wget git openssl-devel zlib patch
 ```
 
 **WARNING**: package names and the package manager may vary across distribution.
