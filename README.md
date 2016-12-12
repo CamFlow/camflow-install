@@ -11,9 +11,17 @@ CamFlow is not yet feature complete, please visit [our website](http://camflow.o
 
 ## Installing dependencies
 
+### Fedora
+
 ``` shell
 sudo dnf groupinstall 'Development Tools'
-sudo dnf install ncurses-devel cmake clang gcc-c++ wget git openssl-devel zlib patch
+sudo dnf install ncurses-devel cmake clang gcc-c++ wget git openssl-devel zlib patch mosquitto
+```
+
+### Ubuntu
+``` shell
+sudo apt-get -y install build-essential
+sudo apt-get -y install libncurses-dev cmake clang g++ wget git libssl-dev bc nano patch mosquitto
 ```
 
 **WARNING**: package names and the package manager may vary across distribution.
@@ -22,6 +30,8 @@ Please refer to your distribution documentation for the equivalent packages.
 ## Building and installing CamFlow
 
 ``` shell
+git clone https://github.com/CamFlow/camflow-install.git
+cd camflow-install
 make all
 ```
 
@@ -47,6 +57,7 @@ sudo reboot now
 
 | CamFlow version | Kernel version | Date       |
 | --------------- |----------------| ---------- |
+| 0.1.11          | 4.4.36         | 05/12/2016 |
 | 0.1.10          | 4.4.31         | 11/11/2016 |
 | 0.1.9           | 4.4.28         | 28/10/2016 |
 | 0.1.8           | 4.4.25         | 19/10/2016 |
