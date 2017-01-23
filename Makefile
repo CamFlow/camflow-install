@@ -111,8 +111,6 @@ compile:
 new_compile:
 	@echo "Building kernel ..."
 	cd ./build/camflow-patches/${lsm-version} && $(MAKE) compile
-	@echo "Building IFC library ..."
-	cd ./build/camflow-ifc-lib && $(MAKE) all
 	@echo "Building provenance library ..."
 	cd ./build/camflow-provenance-lib && $(MAKE) all
 
