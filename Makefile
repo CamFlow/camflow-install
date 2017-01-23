@@ -56,7 +56,11 @@ v0.1.11: provenance-version=v0.1.13 #user space version number need not to be id
 v0.1.11: ifc-version=v0.1.4 #user space version number need not to be identical to LSM
 v0.1.11: config-version=v0.1.7 #user space version number need not to be identical to LSM
 
-all: v0.1.11
+v0.2.0: lsm-version=v0.2.0
+v0.2.0: provenance-version=v0.2.0 #user space version number need not to be identical to LSM
+v0.2.0: config-version=v0.2.0 #user space version number need not to be identical to LSM
+
+all: v0.2.0
 
 prepare:
 	@echo "Building CamFlow ${lsm-version}, this may take a while and require root password."
@@ -77,6 +81,21 @@ prepare:
 	cd ./build && git clone https://github.com/camflow/camflow-patches.git
 	cd ./build/camflow-patches/${lsm-version} && $(MAKE) prepare
 
+new_prepare:
+	@echo "Building CamFlow ${lsm-version}, this may take a while and require root password."
+	mkdir -p build
+	@echo "Downloading provenance library ${provenance-version} ..."
+	cd ./build && git clone https://github.com/camflow/camflow-provenance-lib.git
+	cd ./build/camflow-provenance-lib && git checkout tags/${provenance-version}
+	cd ./build/camflow-provenance-lib && $(MAKE) prepare
+	@echo "Downloading configuration service ${config-version} ..."
+	cd ./build && git clone https://github.com/camflow/camflow-config.git
+	cd ./build/camflow-config && git checkout tags/${config-version}
+	cd ./build/camflow-config && $(MAKE) prepare
+	@echo "Downloading LSM patches..."
+	cd ./build && git clone https://github.com/camflow/camflow-patches.git
+	cd ./build/camflow-patches/${lsm-version} && $(MAKE) prepare
+
 config:
 	@echo "Starting kernel configuration ..."
 	cd ./build/camflow-patches/${lsm-version} && $(MAKE) config
@@ -89,11 +108,29 @@ compile:
 	@echo "Building provenance library ..."
 	cd ./build/camflow-provenance-lib && $(MAKE) all
 
+new_compile:
+	@echo "Building kernel ..."
+	cd ./build/camflow-patches/${lsm-version} && $(MAKE) compile
+	@echo "Building IFC library ..."
+	cd ./build/camflow-ifc-lib && $(MAKE) all
+	@echo "Building provenance library ..."
+	cd ./build/camflow-provenance-lib && $(MAKE) all
+
 install:
 	@echo "Installing kernel ..."
 	cd ./build/camflow-patches/${lsm-version} && $(MAKE) install
 	@echo "Installing IFC library ..."
 	cd ./build/camflow-ifc-lib && $(MAKE) install
+	@echo "Installing provenance library ..."
+	cd ./build/camflow-provenance-lib && $(MAKE) install
+	@echo "Building configuration service ..."
+	cd ./build/camflow-config && $(MAKE) all
+	@echo "Installing configuration service ..."
+	cd ./build/camflow-config && $(MAKE) install
+
+new_install:
+	@echo "Installing kernel ..."
+	cd ./build/camflow-patches/${lsm-version} && $(MAKE) install
 	@echo "Installing provenance library ..."
 	cd ./build/camflow-provenance-lib && $(MAKE) install
 	@echo "Building configuration service ..."
@@ -156,3 +193,5 @@ v0.1.9: prepare config compile install
 v0.1.10: prepare config compile install
 
 v0.1.11: prepare config compile install
+
+v0.2.0: new_prepare config new_compile new_install
