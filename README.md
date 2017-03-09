@@ -5,9 +5,14 @@ CamFlow should work with other Linux distributions, but we make no guarantee.
 
 CamFlow's source code and patch notes can be found [here](https://github.com/camflow/camflow-dev).
 
-## Limitations
+# Build Status
 
-CamFlow is not yet feature complete, please visit [our website](http://camflow.org/) for more information.
+| Branch | Status                                                                                  |
+|--------|-----------------------------------------------------------------------------------------|
+| master | [![Master Build Status](https://api.travis-ci.org/CamFlow/camflow-install.svg)](https://travis-ci.org/CamFlow/camflow-install/branches)  |
+
+Automated Travis test verifies:
+- verifies that the latest release build.
 
 ## Installing dependencies
 
@@ -57,6 +62,8 @@ sudo reboot now
 
 | CamFlow version | Kernel version | Date       |
 | --------------- |----------------| ---------- |
+| 0.2.3           | 4.9.13         | 09/03/2017 |
+| 0.2.2           | 4.9.9          | 14/02/2017 |
 | 0.2.1           | 4.9.5          | 03/02/2017	|
 | 0.2.0           | 4.9.5          | 23/01/2017 |
 | 0.1.11          | 4.4.36         | 05/12/2016 |

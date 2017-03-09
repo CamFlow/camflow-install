@@ -68,38 +68,48 @@ v0.2.2: lsm-version=v0.2.2
 v0.2.2: provenance-version=v0.2.1 #user space version number need not to be identical to LSM
 v0.2.2: config-version=v0.2.0 #user space version number need not to be identical to LSM
 
-all: v0.2.2
+v0.2.3: lsm-version=v0.2.3
+v0.2.3: provenance-version=v0.2.2 #user space version number need not to be identical to LSM
+v0.2.3: config-version=v0.2.1 #user space version number need not to be identical to LSM
+v0.2.3: cli-version=v0.1.0 #user space version number need not to be identical to LSM
 
-prepare:
-	@echo "Building CamFlow ${lsm-version}, this may take a while and require root password."
+travis: lsm-version=v0.2.3
+travis: provenance-version=v0.2.2 #user space version number need not to be identical to LSM
+travis: config-version=v0.2.1 #user space version number need not to be identical to LSM
+travis: cli-version=v0.1.0 #user space version number need not to be identical to LSM
+
+all: v0.2.3
+
+prepare_provenance:
 	mkdir -p build
 	@echo "Downloading provenance library ${provenance-version} ..."
 	cd ./build && git clone https://github.com/camflow/camflow-provenance-lib.git
 	cd ./build/camflow-provenance-lib && git checkout tags/${provenance-version}
 	cd ./build/camflow-provenance-lib && $(MAKE) prepare
+
+prepare_ifc:
+	mkdir -p build
 	@echo "Downloading ifc library ${ifc-version} ..."
 	cd ./build && git clone https://github.com/camflow/camflow-ifc-lib.git
 	cd ./build/camflow-ifc-lib && git checkout tags/${ifc-version}
 	cd ./build/camflow-ifc-lib && $(MAKE) prepare
-	@echo "Downloading configuration service ${config-version} ..."
-	cd ./build && git clone https://github.com/camflow/camflow-config.git
-	cd ./build/camflow-config && git checkout tags/${config-version}
-	cd ./build/camflow-config && $(MAKE) prepare
-	@echo "Downloading LSM patches..."
-	cd ./build && git clone https://github.com/camflow/camflow-patches.git
-	cd ./build/camflow-patches/${lsm-version} && $(MAKE) prepare
 
-new_prepare:
-	@echo "Building CamFlow ${lsm-version}, this may take a while and require root password."
+prepare_config:
 	mkdir -p build
-	@echo "Downloading provenance library ${provenance-version} ..."
-	cd ./build && git clone https://github.com/camflow/camflow-provenance-lib.git
-	cd ./build/camflow-provenance-lib && git checkout tags/${provenance-version}
-	cd ./build/camflow-provenance-lib && $(MAKE) prepare
 	@echo "Downloading configuration service ${config-version} ..."
 	cd ./build && git clone https://github.com/camflow/camflow-config.git
 	cd ./build/camflow-config && git checkout tags/${config-version}
 	cd ./build/camflow-config && $(MAKE) prepare
+
+prepare_cli:
+	mkdir -p build
+	@echo "Downloading command line interface ${cli-version} ..."
+	cd ./build && git clone https://github.com/camflow/camflow-cli.git
+	cd ./build/camflow-cli && git checkout tags/${cli-version}
+	cd ./build/camflow-cli && $(MAKE) prepare
+
+prepare_lsm:
+	mkdir -p build
 	@echo "Downloading LSM patches..."
 	cd ./build && git clone https://github.com/camflow/camflow-patches.git
 	cd ./build/camflow-patches/${lsm-version} && $(MAKE) prepare
@@ -108,100 +118,76 @@ config:
 	@echo "Starting kernel configuration ..."
 	cd ./build/camflow-patches/${lsm-version} && $(MAKE) config
 
-compile:
+config_travis:
+	@echo "Starting kernel configuration ..."
+	cd ./build/camflow-patches/${lsm-version} && $(MAKE) config_travis
+
+compile_lsm:
 	@echo "Building kernel ..."
 	cd ./build/camflow-patches/${lsm-version} && $(MAKE) compile
+
+compile_ifc:
 	@echo "Building IFC library ..."
 	cd ./build/camflow-ifc-lib && $(MAKE) all
+
+compile_provenance:
 	@echo "Building provenance library ..."
 	cd ./build/camflow-provenance-lib && $(MAKE) all
 
-new_compile:
-	@echo "Building kernel ..."
-	cd ./build/camflow-patches/${lsm-version} && $(MAKE) compile
-	@echo "Building provenance library ..."
-	cd ./build/camflow-provenance-lib && $(MAKE) all
-
-install:
+install_lsm:
 	@echo "Installing kernel ..."
 	cd ./build/camflow-patches/${lsm-version} && $(MAKE) install
+
+install_ifc:
 	@echo "Installing IFC library ..."
 	cd ./build/camflow-ifc-lib && $(MAKE) install
+
+install_provenance:
 	@echo "Installing provenance library ..."
 	cd ./build/camflow-provenance-lib && $(MAKE) install
+
+install_config:
 	@echo "Building configuration service ..."
 	cd ./build/camflow-config && $(MAKE) all
 	@echo "Installing configuration service ..."
 	cd ./build/camflow-config && $(MAKE) install
 
-new_install:
-	@echo "Installing kernel ..."
-	cd ./build/camflow-patches/${lsm-version} && $(MAKE) install
-	@echo "Installing provenance library ..."
-	cd ./build/camflow-provenance-lib && $(MAKE) install
-	@echo "Building configuration service ..."
-	cd ./build/camflow-config && $(MAKE) all
-	@echo "Installing configuration service ..."
-	cd ./build/camflow-config && $(MAKE) install
+install_cli:
+	@echo "Building command line interface ..."
+	cd ./build/camflow-cli && $(MAKE) all
+	@echo "Installing command line interface ..."
+	cd ./build/camflow-cli && $(MAKE) install
 
-old_prepare:
-	@echo "Building CamFlow ${lsm-version}, this may take a while and require root password."
-	mkdir -p build
-	@echo "Downloading provenance library ${provenance-version} ..."
-	cd ./build && git clone https://github.com/camflow/camflow-provenance-lib.git
-	cd ./build/camflow-provenance-lib && git checkout tags/${provenance-version}
-	cd ./build/camflow-provenance-lib && $(MAKE) prepare
-	@echo "Downloading ifc library ${ifc-version} ..."
-	cd ./build && git clone https://github.com/camflow/camflow-ifc-lib.git
-	cd ./build/camflow-ifc-lib && git checkout tags/${ifc-version}
-	cd ./build/camflow-ifc-lib && $(MAKE) prepare
-	@echo "Downloading LSM patches..."
-	cd ./build && git clone https://github.com/camflow/camflow-patches.git
-	cd ./build/camflow-patches/${lsm-version} && $(MAKE) prepare
+v0.1.0: prepare_ifc prepare_provenance prepare_lsm config compile_lsm compile_ifc compile_provenance install_lsm install_provenance install_ifc
 
-old_compile:
-	@echo "Building kernel ..."
-	cd ./build/camflow-patches/${lsm-version} && $(MAKE) compile
-	@echo "Building IFC library ..."
-	cd ./build/camflow-ifc-lib && $(MAKE) all
-	@echo "Building provenance library ..."
-	cd ./build/camflow-provenance-lib && $(MAKE) all
+v0.1.1: prepare_ifc prepare_provenance prepare_lsm config compile_lsm compile_ifc compile_provenance install_lsm install_provenance install_ifc
 
-old_install:
-	@echo "Installing kernel ..."
-	cd ./build/camflow-patches/${lsm-version} && $(MAKE) install
-	@echo "Installing IFC library ..."
-	cd ./build/camflow-ifc-lib && $(MAKE) install
-	@echo "Installing provenance library ..."
-	cd ./build/camflow-provenance-lib && $(MAKE) install
+v0.1.2: prepare_ifc prepare_provenance prepare_config prepare_lsm config compile_lsm compile_ifc compile_provenance install_lsm install_provenance install_config install_ifc
 
+v0.1.3: prepare_ifc prepare_provenance prepare_config prepare_lsm config compile_lsm compile_ifc compile_provenance install_lsm install_provenance install_config install_ifc
 
-v0.1.0: old_prepare config old_compile old_install
+v0.1.4: prepare_ifc prepare_provenance prepare_config prepare_lsm config compile_lsm compile_ifc compile_provenance install_lsm install_provenance install_config install_ifc
 
-v0.1.1: old_prepare config old_compile old_install
+v0.1.5: prepare_ifc prepare_provenance prepare_config prepare_lsm config compile_lsm compile_ifc compile_provenance install_lsm install_provenance install_config install_ifc
 
-v0.1.2: prepare config compile install
+v0.1.6: prepare_ifc prepare_provenance prepare_config prepare_lsm config compile_lsm compile_ifc compile_provenance install_lsm install_provenance install_config install_ifc
 
-v0.1.3: prepare config compile install
+v0.1.7: prepare_ifc prepare_provenance prepare_config prepare_lsm config compile_lsm compile_ifc compile_provenance install_lsm install_provenance install_config install_ifc
 
-v0.1.4: prepare config compile install
+v0.1.8: prepare_ifc prepare_provenance prepare_config prepare_lsm config compile_lsm compile_ifc compile_provenance install_lsm install_provenance install_config install_ifc
 
-v0.1.5: prepare config compile install
+v0.1.9: prepare_ifc prepare_provenance prepare_config prepare_lsm config compile_lsm compile_ifc compile_provenance install_lsm install_provenance install_config install_ifc
 
-v0.1.6: prepare config compile install
+v0.1.10: prepare_ifc prepare_provenance prepare_config prepare_lsm config compile_lsm compile_ifc compile_provenance install_lsm install_provenance install_config install_ifc
 
-v0.1.7: prepare config compile install
+v0.1.11: prepare_ifc prepare_provenance prepare_config prepare_lsm config compile_lsm compile_ifc compile_provenance install_lsm install_provenance install_config install_ifc
 
-v0.1.8: prepare config compile install
+v0.2.0: prepare_provenance prepare_config prepare_lsm config compile_lsm compile_provenance install_lsm install_provenance install_config
 
-v0.1.9: prepare config compile install
+v0.2.1: prepare_provenance prepare_config prepare_lsm config compile_lsm compile_provenance install_lsm install_provenance install_config
 
-v0.1.10: prepare config compile install
+v0.2.2: prepare_provenance prepare_config prepare_lsm config compile_lsm compile_provenance install_lsm install_provenance install_config
 
-v0.1.11: prepare config compile install
+v0.2.3: prepare_provenance prepare_config prepare_cli prepare_lsm config compile_lsm compile_provenance install_lsm install_provenance install_config install_cli
 
-v0.2.0: new_prepare config new_compile new_install
-
-v0.2.1: new_prepare config new_compile new_install
-
-v0.2.2: new_prepare config new_compile new_install
+travis: prepare_provenance prepare_config prepare_cli prepare_lsm config_travis compile_lsm compile_provenance
