@@ -190,4 +190,4 @@ v0.2.2: prepare_provenance prepare_config prepare_lsm config compile_lsm compile
 
 v0.2.3: prepare_provenance prepare_config prepare_cli prepare_lsm config compile_lsm compile_provenance install_lsm install_provenance install_config install_cli
 
-travis: prepare_provenance prepare_config prepare_cli prepare_lsm config_travis compile_lsm compile_provenance
+travis: prepare_lsm config_travis compile_lsm
