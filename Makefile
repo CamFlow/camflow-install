@@ -69,12 +69,12 @@ v0.2.2: provenance-version=v0.2.1 #user space version number need not to be iden
 v0.2.2: config-version=v0.2.0 #user space version number need not to be identical to LSM
 
 v0.2.3: lsm-version=v0.2.3
-v0.2.3: provenance-version=v0.2.2 #user space version number need not to be identical to LSM
+v0.2.3: provenance-version=v0.2.3 #user space version number need not to be identical to LSM
 v0.2.3: config-version=v0.2.1 #user space version number need not to be identical to LSM
 v0.2.3: cli-version=v0.1.0 #user space version number need not to be identical to LSM
 
 travis: lsm-version=v0.2.3
-travis: provenance-version=v0.2.2 #user space version number need not to be identical to LSM
+travis: provenance-version=v0.2.3 #user space version number need not to be identical to LSM
 travis: config-version=v0.2.1 #user space version number need not to be identical to LSM
 travis: cli-version=v0.1.0 #user space version number need not to be identical to LSM
 
