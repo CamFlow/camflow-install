@@ -155,7 +155,7 @@ compile_provenance:
 
 install_lsm:
 	@echo "Installing kernel ..."
-	cd ./build/camflow-patches/${lsm-version} && $(MAKE) install
+	cd ./build/camflow-patches/v${lsm-version} && $(MAKE) install
 
 install_ifc:
 	@echo "Installing IFC library ..."
@@ -177,7 +177,7 @@ install_cli:
 	@echo "Installing command line interface ..."
 	cd ./build/camflow-cli && $(MAKE) install
 
-install_cli:
+install_service:
 	@echo "Building command line interface ..."
 	cd ./build/camflow-service && $(MAKE) all
 	@echo "Installing command line interface ..."
