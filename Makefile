@@ -86,7 +86,7 @@ v0.3.1: service-version=v0.1.0
 
 travis: lsm-version=v0.3.1
 travis: provenance-version=v0.3.1 #user space version number need not to be identical to LSM
-travis: config-version=v0.3.1 #user space version number need not to be identical to LSM
+travis: config-version=v0.3.0 #user space version number need not to be identical to LSM
 travis: cli-version=v0.1.2 #user space version number need not to be identical to LSM
 travis: service-version=v0.1.0
 
