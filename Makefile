@@ -156,6 +156,7 @@ compile_provenance:
 install_lsm:
 	@echo "Installing kernel ..."
 	cd ./build/camflow-patches/${lsm-version} && $(MAKE) install
+	cd ./build/camflow-patches/${lsm-version} && $(MAKE) clean
 
 install_ifc:
 	@echo "Installing IFC library ..."
@@ -182,6 +183,9 @@ install_service:
 	cd ./build/camflow-service && $(MAKE) all
 	@echo "Installing command line interface ..."
 	cd ./build/camflow-service && $(MAKE) install
+
+clean:
+	rm -rf ./build
 
 v0.1.0: prepare_ifc prepare_provenance prepare_lsm config compile_lsm compile_ifc compile_provenance install_lsm install_provenance install_ifc
 
@@ -217,6 +221,6 @@ v0.2.3: prepare_provenance prepare_config prepare_cli prepare_lsm config compile
 
 v0.3.0: prepare_provenance prepare_config prepare_cli prepare_lsm config compile_lsm compile_provenance install_lsm install_provenance install_config install_cli
 
-v0.3.1: prepare_provenance prepare_config prepare_cli prepare_service prepare_lsm config compile_lsm compile_provenance install_lsm install_provenance install_config install_cli install_service
+v0.3.1: prepare_provenance prepare_config prepare_cli prepare_service prepare_lsm config compile_lsm compile_provenance install_lsm install_provenance install_config install_cli install_service clean
 
-travis: prepare_provenance prepare_cli prepare_service prepare_lsm config_travis compile_lsm compile_provenance
+travis: prepare_provenance prepare_cli prepare_service prepare_lsm config_travis compile_lsm compile_provenance clean
