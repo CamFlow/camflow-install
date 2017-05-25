@@ -185,7 +185,7 @@ install_service:
 	cd ./build/camflow-service && $(MAKE) install
 
 clean:
-	rm -rf ./build
+	sudo rm -rf ./build
 
 v0.1.0: prepare_ifc prepare_provenance prepare_lsm config compile_lsm compile_ifc compile_provenance install_lsm install_provenance install_ifc
 
