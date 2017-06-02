@@ -97,6 +97,7 @@ travis: cli-version=v0.1.2 #user space version number need not to be identical t
 travis: service-version=v0.1.0
 
 all: v0.3.2
+package=0.3.2
 
 prepare_provenance:
 	mkdir -p build
@@ -200,7 +201,7 @@ rpm:
 	cp ~/rpmbuild/RPMS/x86_64/* ./output
 
 publish:
-	cd ./output && package_cloud push camflow/provenance/fedora/25 camflow-provenance-lib-$(version)-1.x86_64.rpm
+	cd ./output && package_cloud push camflow/provenance/fedora/25 camflow-$(package)-1.x86_64.rpm
 
 v0.1.0: prepare_ifc prepare_provenance prepare_lsm config compile_lsm compile_ifc compile_provenance install_lsm install_provenance install_ifc
 
