@@ -187,6 +187,15 @@ install_service:
 clean:
 	sudo rm -rf ./build
 
+rpm:
+	mkdir -p ~/rpmbuild/{RPMS,SRPMS,BUILD,SOURCES,SPECS,tmp}
+	rpmbuild -bb camflow.spec
+	mkdir -p output
+	cp ~/rpmbuild/RPMS/x86_64/* ./output
+
+publish:
+	cd ./output && package_cloud push camflow/provenance/fedora/25 camflow-provenance-lib-$(version)-1.x86_64.rpm
+
 v0.1.0: prepare_ifc prepare_provenance prepare_lsm config compile_lsm compile_ifc compile_provenance install_lsm install_provenance install_ifc
 
 v0.1.1: prepare_ifc prepare_provenance prepare_lsm config compile_lsm compile_ifc compile_provenance install_lsm install_provenance install_ifc
