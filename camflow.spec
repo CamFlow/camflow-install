@@ -6,8 +6,8 @@ Group: audit/camflow
 License: GPLv3
 Source: %{expand:%%(pwd)}
 BuildRoot: %{_topdir}/BUILD/%{name}-%{version}-%{release}
-Requires: camflow-service = 0.1.1
-Requires: camflow-config = 0.3.1
+Requires: camflowd = 0.1.1
+Requires: camconfigd = 0.3.1
 Requires: camflow-cli = 0.1.3
 Requires: camflow-provenance-lib = 0.3.2
 Requires: kernel = 4.11.3camflow_0.3.2
