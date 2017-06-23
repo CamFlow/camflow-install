@@ -201,12 +201,20 @@ clean:
 	sudo rm -rf ./build
 
 rpm:
+	cd ./build/camconfd && $(MAKE) rpm
+	cd ./build/camflowd && $(MAKE) rpm
+	cd ./build/camflow-cli && $(MAKE) rpm
+	cd ./build/camflow-provenance-lib && $(MAKE) rpm
 	mkdir -p ~/rpmbuild/{RPMS,SRPMS,BUILD,SOURCES,SPECS,tmp}
 	rpmbuild -bb camflow.spec
 	mkdir -p output
 	cp ~/rpmbuild/RPMS/x86_64/* ./output
 
 publish:
+	cd ./build/camconfd && $(MAKE) publish
+	cd ./build/camflowd && $(MAKE) publish
+	cd ./build/camflow-cli && $(MAKE) publish
+	cd ./build/camflow-provenance-lib && $(MAKE) publish
 	cd ./output && package_cloud push camflow/provenance/fedora/25 camflow-$(package)-1.x86_64.rpm
 
 v0.1.0: prepare_ifc prepare_provenance prepare_lsm config compile_lsm compile_ifc compile_provenance install_lsm install_provenance install_ifc
@@ -243,10 +251,10 @@ v0.2.3: prepare_provenance prepare_config prepare_cli prepare_lsm config compile
 
 v0.3.0: prepare_provenance prepare_config prepare_cli prepare_lsm config compile_lsm compile_provenance install_lsm install_provenance install_config install_cli
 
-v0.3.1: prepare_provenance prepare_config prepare_cli prepare_service prepare_lsm config compile_lsm compile_provenance install_lsm install_provenance install_config install_cli install_service clean
+v0.3.1: prepare_provenance prepare_config prepare_cli prepare_service prepare_lsm config compile_lsm compile_provenance install_lsm install_provenance install_config install_cli install_service
 
-v0.3.2: prepare_provenance prepare_config prepare_cli prepare_service prepare_lsm config compile_lsm compile_provenance install_lsm install_provenance install_config install_cli install_service clean
+v0.3.2: prepare_provenance prepare_config prepare_cli prepare_service prepare_lsm config compile_lsm compile_provenance install_lsm install_provenance install_config install_cli install_service
 
-v0.3.3: prepare_provenance prepare_config prepare_cli prepare_service prepare_lsm config compile_lsm compile_provenance install_lsm install_provenance install_config install_cli install_service clean
+v0.3.3: prepare_provenance prepare_config prepare_cli prepare_service prepare_lsm config compile_lsm compile_provenance install_lsm install_provenance install_config install_cli install_service
 
 travis: prepare_provenance prepare_cli prepare_service prepare_lsm config_travis compile_lsm compile_provenance clean
