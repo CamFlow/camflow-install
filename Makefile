@@ -90,14 +90,20 @@ v0.3.2: config-version=v0.3.0 #user space version number need not to be identica
 v0.3.2: cli-version=v0.1.2 #user space version number need not to be identical to LSM
 v0.3.2: service-version=v0.1.0
 
-travis: lsm-version=v0.3.2
-travis: provenance-version=v0.3.1 #user space version number need not to be identical to LSM
-travis: config-version=v0.3.0 #user space version number need not to be identical to LSM
-travis: cli-version=v0.1.2 #user space version number need not to be identical to LSM
-travis: service-version=v0.1.0
+v0.3.3: lsm-version=v0.3.3
+v0.3.3: provenance-version=v0.3.2 #user space version number need not to be identical to LSM
+v0.3.3: config-version=v0.3.1 #user space version number need not to be identical to LSM
+v0.3.3: cli-version=v0.1.3 #user space version number need not to be identical to LSM
+v0.3.3: service-version=v0.1.1
 
-all: v0.3.2
-package=0.3.2
+travis: lsm-version=v0.3.3
+travis: provenance-version=v0.3.2 #user space version number need not to be identical to LSM
+travis: config-version=v0.3.1 #user space version number need not to be identical to LSM
+travis: cli-version=v0.1.3 #user space version number need not to be identical to LSM
+travis: service-version=v0.1.1
+
+all: v0.3.3
+package=0.3.3
 
 prepare_provenance:
 	mkdir -p build
@@ -116,9 +122,9 @@ prepare_ifc:
 prepare_config:
 	mkdir -p build
 	@echo "Downloading configuration service ${config-version} ..."
-	cd ./build && git clone https://github.com/camflow/camflow-config.git
-	cd ./build/camflow-config && git checkout tags/${config-version}
-	cd ./build/camflow-config && $(MAKE) prepare
+	cd ./build && git clone https://github.com/camflow/camconfd.git
+	cd ./build/camconfd && git checkout tags/${config-version}
+	cd ./build/camconfd && $(MAKE) prepare
 
 prepare_cli:
 	mkdir -p build
@@ -130,9 +136,9 @@ prepare_cli:
 prepare_service:
 	mkdir -p build
 	@echo "Downloading service ${service-version} ..."
-	cd ./build && git clone https://github.com/camflow/camflow-service.git
-	cd ./build/camflow-service && git checkout tags/${service-version}
-	cd ./build/camflow-service && $(MAKE) prepare
+	cd ./build && git clone https://github.com/camflow/camflowd.git
+	cd ./build/camflowd && git checkout tags/${service-version}
+	cd ./build/camflowd && $(MAKE) prepare
 
 prepare_lsm:
 	mkdir -p build
@@ -175,9 +181,9 @@ install_provenance:
 
 install_config:
 	@echo "Building configuration service ..."
-	cd ./build/camflow-config && $(MAKE) all
+	cd ./build/camconfd && $(MAKE) all
 	@echo "Installing configuration service ..."
-	cd ./build/camflow-config && $(MAKE) install
+	cd ./build/camconfd && $(MAKE) install
 
 install_cli:
 	@echo "Building command line interface ..."
@@ -187,9 +193,9 @@ install_cli:
 
 install_service:
 	@echo "Building command line interface ..."
-	cd ./build/camflow-service && $(MAKE) all
+	cd ./build/camflowd && $(MAKE) all
 	@echo "Installing command line interface ..."
-	cd ./build/camflow-service && $(MAKE) install
+	cd ./build/camflowd && $(MAKE) install
 
 clean:
 	sudo rm -rf ./build
@@ -240,5 +246,7 @@ v0.3.0: prepare_provenance prepare_config prepare_cli prepare_lsm config compile
 v0.3.1: prepare_provenance prepare_config prepare_cli prepare_service prepare_lsm config compile_lsm compile_provenance install_lsm install_provenance install_config install_cli install_service clean
 
 v0.3.2: prepare_provenance prepare_config prepare_cli prepare_service prepare_lsm config compile_lsm compile_provenance install_lsm install_provenance install_config install_cli install_service clean
+
+v0.3.3: prepare_provenance prepare_config prepare_cli prepare_service prepare_lsm config compile_lsm compile_provenance install_lsm install_provenance install_config install_cli install_service clean
 
 travis: prepare_provenance prepare_cli prepare_service prepare_lsm config_travis compile_lsm compile_provenance clean
