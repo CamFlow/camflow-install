@@ -11,7 +11,7 @@ before_install:
   - sudo apt-get -y install libedit-dev
 
 script:
-  - make all
+  - make travis
 
 notifications:
   slack: camflow:T3Umf9cAIwKnaxFEkjeZV7RM

@@ -257,4 +257,4 @@ v0.3.2: prepare_provenance prepare_config prepare_cli prepare_service prepare_ls
 
 v0.3.3: prepare_provenance prepare_config prepare_cli prepare_service prepare_lsm config compile_lsm compile_provenance install_lsm install_provenance install_config install_cli install_service
 
-travis: prepare_provenance prepare_cli prepare_service prepare_lsm config_travis compile_lsm compile_provenance clean
+travis: prepare_provenance prepare_config prepare_cli prepare_service prepare_lsm config_travis compile_lsm compile_provenance install_lsm install_provenance install_config install_cli install_service
