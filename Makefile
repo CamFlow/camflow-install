@@ -108,9 +108,9 @@ package=0.3.3
 prepare_provenance:
 	mkdir -p build
 	@echo "Downloading provenance library ${provenance-version} ..."
-	cd ./build && git clone https://github.com/camflow/camflow-provenance-lib.git
-	cd ./build/camflow-provenance-lib && git checkout tags/${provenance-version}
-	cd ./build/camflow-provenance-lib && $(MAKE) prepare
+	cd ./build && git clone https://github.com/camflow/libprovenance.git
+	cd ./build/libprovenance && git checkout tags/${provenance-version}
+	cd ./build/libprovenance && $(MAKE) prepare
 
 prepare_ifc:
 	mkdir -p build
@@ -164,7 +164,7 @@ compile_ifc:
 
 compile_provenance:
 	@echo "Building provenance library ..."
-	cd ./build/camflow-provenance-lib && $(MAKE) all
+	cd ./build/libprovenance && $(MAKE) all
 
 install_lsm:
 	@echo "Installing kernel ..."
@@ -177,7 +177,7 @@ install_ifc:
 
 install_provenance:
 	@echo "Installing provenance library ..."
-	cd ./build/camflow-provenance-lib && $(MAKE) install
+	cd ./build/libprovenance && $(MAKE) install
 
 install_config:
 	@echo "Building configuration service ..."
@@ -204,7 +204,7 @@ rpm:
 	cd ./build/camconfd && $(MAKE) rpm
 	cd ./build/camflowd && $(MAKE) rpm
 	cd ./build/camflow-cli && $(MAKE) rpm
-	cd ./build/camflow-provenance-lib && $(MAKE) rpm
+	cd ./build/libprovenance && $(MAKE) rpm
 	mkdir -p ~/rpmbuild/{RPMS,SRPMS,BUILD,SOURCES,SPECS,tmp}
 	rpmbuild -bb camflow.spec
 	mkdir -p output
@@ -214,7 +214,7 @@ publish:
 	cd ./build/camconfd && $(MAKE) publish
 	cd ./build/camflowd && $(MAKE) publish
 	cd ./build/camflow-cli && $(MAKE) publish
-	cd ./build/camflow-provenance-lib && $(MAKE) publish
+	cd ./build/libprovenance && $(MAKE) publish
 	cd ./output && package_cloud push camflow/provenance/fedora/25 camflow-$(package)-1.x86_64.rpm
 
 v0.1.0: prepare_ifc prepare_provenance prepare_lsm config compile_lsm compile_ifc compile_provenance install_lsm install_provenance install_ifc
