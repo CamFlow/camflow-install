@@ -221,7 +221,7 @@ publish:
 	cd ./build/camflowd && $(MAKE) publish
 	cd ./build/camflow-cli && $(MAKE) publish
 	cd ./build/libprovenance && $(MAKE) publish
-	cd ./output && package_cloud push camflow/provenance/fedora/25 camflow-$(package)-1.x86_64.rpm
+	cd ./output && package_cloud push camflow/provenance/fedora/26 camflow-$(package)-1.x86_64.rpm
 
 v0.1.0: prepare_ifc prepare_provenance prepare_lsm config compile_lsm compile_ifc compile_provenance install_lsm install_provenance install_ifc
 
