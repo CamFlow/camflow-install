@@ -103,13 +103,13 @@ v0.3.4: cli-version=v0.1.4 #user space version number need not to be identical t
 v0.3.4: service-version=v0.1.3
 
 travis: lsm-version=v0.3.4
-travis: lib-version=v0.3.4 #user space version number need not to be identical to LSM
+travis: lib-version=v0.3.5 #user space version number need not to be identical to LSM
 travis: config-version=v0.3.2 #user space version number need not to be identical to LSM
 travis: cli-version=v0.1.4 #user space version number need not to be identical to LSM
-travis: service-version=v0.1.3
+travis: service-version=v0.1.4
 
 all: v0.3.4
-package=0.3.4
+package=0.1.0
 
 prepare_provenance:
 	mkdir -p build
@@ -207,21 +207,29 @@ clean:
 	sudo rm -rf ./build
 
 rpm:
-	cd ./build/camconfd && $(MAKE) rpm
-	cd ./build/camflowd && $(MAKE) rpm
-	cd ./build/camflow-cli && $(MAKE) rpm
-	cd ./build/libprovenance && $(MAKE) rpm
 	mkdir -p ~/rpmbuild/{RPMS,SRPMS,BUILD,SOURCES,SPECS,tmp}
 	rpmbuild -bb camflow.spec
 	mkdir -p output
 	cp ~/rpmbuild/RPMS/x86_64/* ./output
 
+rpm_us:
+	cd ./build/camconfd && $(MAKE) rpm
+	cd ./build/camflowd && $(MAKE) rpm
+	cd ./build/camflow-cli && $(MAKE) rpm
+	cd ./build/libprovenance && $(MAKE) rpm
+
+all_rpm: rpm_us rpm
+
 publish:
+	cd ./output && package_cloud push camflow/provenance/fedora/26 camflow-$(package)-1.x86_64.rpm
+
+publish_us:
 	cd ./build/camconfd && $(MAKE) publish
 	cd ./build/camflowd && $(MAKE) publish
 	cd ./build/camflow-cli && $(MAKE) publish
 	cd ./build/libprovenance && $(MAKE) publish
-	cd ./output && package_cloud push camflow/provenance/fedora/26 camflow-$(package)-1.x86_64.rpm
+
+publish_all: publish_us publish
 
 v0.1.0: prepare_ifc prepare_provenance prepare_lsm config compile_lsm compile_ifc compile_provenance install_lsm install_provenance install_ifc
 
