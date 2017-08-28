@@ -103,19 +103,19 @@ v0.3.4: cli-version=v0.1.4 #user space version number need not to be identical t
 v0.3.4: service-version=v0.1.4
 
 v0.3.5: lsm-version=v0.3.5
-v0.3.5: lib-version=v0.3.6 #user space version number need not to be identical to LSM
+v0.3.5: lib-version=v0.3.7 #user space version number need not to be identical to LSM
 v0.3.5: config-version=v0.3.3 #user space version number need not to be identical to LSM
 v0.3.5: cli-version=v0.1.5 #user space version number need not to be identical to LSM
-v0.3.5: service-version=v0.1.5
+v0.3.5: service-version=v0.1.6
 
 travis: lsm-version=v0.3.5
-travis: lib-version=v0.3.6 #user space version number need not to be identical to LSM
+travis: lib-version=v0.3.7 #user space version number need not to be identical to LSM
 travis: config-version=v0.3.3 #user space version number need not to be identical to LSM
 travis: cli-version=v0.1.5 #user space version number need not to be identical to LSM
-travis: service-version=v0.1.5
+travis: service-version=v0.1.6
 
 all: v0.3.5
-package=0.2.0
+package=0.2.1
 
 prepare_provenance:
 	mkdir -p build
