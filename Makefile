@@ -120,7 +120,7 @@ travis: config-version=v0.3.4 #user space version number need not to be identica
 travis: cli-version=v0.1.6 #user space version number need not to be identical to LSM
 travis: service-version=v0.1.7
 
-all: v0.3.6s
+all: v0.3.6
 package=0.3.0
 
 prepare_provenance:
