@@ -8,7 +8,7 @@ Source: %{expand:%%(pwd)}
 BuildRoot: %{_topdir}/BUILD/%{name}-%{version}-%{release}
 Requires: camconfd = 0.3.4
 Requires: camflowd = 0.1.7
-Requires: camflow-cli = 0.1.7
+Requires: camflow-cli = 0.1.6
 Requires: kernel = 4.13.4camflow0.3.7
 Requires: kernel-headers = 4.13.4camflow0.3.7
 Requires: kernel-devel = 4.13.4camflow0.3.7
