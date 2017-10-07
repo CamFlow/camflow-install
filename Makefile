@@ -193,7 +193,6 @@ compile_provenance:
 install_lsm:
 	@echo "Installing kernel ..."
 	cd ./build/camflow-patches/${lsm-version} && $(MAKE) install
-	cd ./build/camflow-patches/${lsm-version} && $(MAKE) clean
 
 install_ifc:
 	@echo "Installing IFC library ..."
