@@ -82,52 +82,58 @@ v0.3.1: lsm-version=v0.3.1
 v0.3.1: lib-version=v0.3.1 #user space version number need not to be identical to LSM
 v0.3.1: config-version=v0.3.0 #user space version number need not to be identical to LSM
 v0.3.1: cli-version=v0.1.2 #user space version number need not to be identical to LSM
-v0.3.1: service-version=v0.1.0
+v0.3.1: service-version=v0.1.0 #user space version number need not to be identical to LSM
 
 v0.3.2: lsm-version=v0.3.2
 v0.3.2: lib-version=v0.3.1 #user space version number need not to be identical to LSM
 v0.3.2: config-version=v0.3.0 #user space version number need not to be identical to LSM
 v0.3.2: cli-version=v0.1.2 #user space version number need not to be identical to LSM
-v0.3.2: service-version=v0.1.0
+v0.3.2: service-version=v0.1.0 #user space version number need not to be identical to LSM
 
 v0.3.3: lsm-version=v0.3.3
 v0.3.3: lib-version=v0.3.2 #user space version number need not to be identical to LSM
 v0.3.3: config-version=v0.3.1 #user space version number need not to be identical to LSM
 v0.3.3: cli-version=v0.1.3 #user space version number need not to be identical to LSM
-v0.3.3: service-version=v0.1.1
+v0.3.3: service-version=v0.1.1 #user space version number need not to be identical to LSM
 
 v0.3.4: lsm-version=v0.3.4
 v0.3.4: lib-version=v0.3.5 #user space version number need not to be identical to LSM
 v0.3.4: config-version=v0.3.2 #user space version number need not to be identical to LSM
 v0.3.4: cli-version=v0.1.4 #user space version number need not to be identical to LSM
-v0.3.4: service-version=v0.1.4
+v0.3.4: service-version=v0.1.4 #user space version number need not to be identical to LSM
 
 v0.3.5: lsm-version=v0.3.5
 v0.3.5: lib-version=v0.3.7 #user space version number need not to be identical to LSM
 v0.3.5: config-version=v0.3.3 #user space version number need not to be identical to LSM
 v0.3.5: cli-version=v0.1.5 #user space version number need not to be identical to LSM
-v0.3.5: service-version=v0.1.6
+v0.3.5: service-version=v0.1.6 #user space version number need not to be identical to LSM
 
 v0.3.6: lsm-version=v0.3.6
 v0.3.6: lib-version=v0.3.8 #user space version number need not to be identical to LSM
 v0.3.6: config-version=v0.3.4 #user space version number need not to be identical to LSM
 v0.3.6: cli-version=v0.1.6 #user space version number need not to be identical to LSM
-v0.3.6: service-version=v0.1.7
+v0.3.6: service-version=v0.1.7 #user space version number need not to be identical to LSM
 
 v0.3.7: lsm-version=v0.3.7
 v0.3.7: lib-version=v0.3.8 #user space version number need not to be identical to LSM
 v0.3.7: config-version=v0.3.4 #user space version number need not to be identical to LSM
 v0.3.7: cli-version=v0.1.6 #user space version number need not to be identical to LSM
-v0.3.7: service-version=v0.1.7
+v0.3.7: service-version=v0.1.7 #user space version number need not to be identical to LSM
 
-travis: lsm-version=v0.3.7
-travis: lib-version=v0.3.8 #user space version number need not to be identical to LSM
-travis: config-version=v0.3.4 #user space version number need not to be identical to LSM
-travis: cli-version=v0.1.6 #user space version number need not to be identical to LSM
-travis: service-version=v0.1.7
+v0.3.8: lsm-version=v0.3.8
+v0.3.8: lib-version=v0.3.9 #user space version number need not to be identical to LSM
+v0.3.8: config-version=v0.4.0 #user space version number need not to be identical to LSM
+v0.3.8: cli-version=v0.1.7 #user space version number need not to be identical to LSM
+v0.3.8: service-version=v0.1.8 #user space version number need not to be identical to LSM
 
-all: v0.3.7
-package=0.4.0
+travis: lsm-version=v0.3.8
+travis: lib-version=v0.3.9 #user space version number need not to be identical to LSM
+travis: config-version=v0.4.0 #user space version number need not to be identical to LSM
+travis: cli-version=v0.1.7 #user space version number need not to be identical to LSM
+travis: service-version=v0.1.8 #user space version number need not to be identical to LSM
+
+all: v0.3.8
+package=0.5.0
 
 prepare_provenance:
 	mkdir -p build
@@ -238,7 +244,7 @@ rpm_us:
 all_rpm: rpm_us rpm
 
 publish:
-	cd ./output && package_cloud push camflow/provenance/fedora/26 camflow-$(package)-1.x86_64.rpm
+	cd ./output && package_cloud push camflow/provenance/fedora/27 camflow-$(package)-1.x86_64.rpm
 
 publish_us:
 	cd ./build/camconfd && $(MAKE) publish
@@ -295,5 +301,7 @@ v0.3.5: prepare_provenance prepare_config prepare_cli prepare_service prepare_ls
 v0.3.6: prepare_provenance prepare_config prepare_cli prepare_service prepare_lsm config compile_lsm compile_provenance install_lsm install_provenance install_config install_cli install_service
 
 v0.3.7: prepare_provenance prepare_config prepare_cli prepare_service prepare_lsm config compile_lsm compile_provenance install_lsm install_provenance install_config install_cli install_service
+
+v0.3.8: prepare_provenance prepare_config prepare_cli prepare_service prepare_lsm config compile_lsm compile_provenance install_lsm install_provenance install_config install_cli install_service
 
 travis: prepare_provenance prepare_config prepare_cli prepare_service prepare_lsm config_travis compile_lsm compile_provenance install_lsm install_provenance install_cli
