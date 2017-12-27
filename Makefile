@@ -126,14 +126,20 @@ v0.3.8: config-version=v0.4.0 #user space version number need not to be identica
 v0.3.8: cli-version=v0.1.7 #user space version number need not to be identical to LSM
 v0.3.8: service-version=v0.1.8 #user space version number need not to be identical to LSM
 
-travis: lsm-version=v0.3.8
+v0.3.9: lsm-version=v0.3.9
+v0.3.9: lib-version=v0.3.9 #user space version number need not to be identical to LSM
+v0.3.9: config-version=v0.4.0 #user space version number need not to be identical to LSM
+v0.3.9: cli-version=v0.1.7 #user space version number need not to be identical to LSM
+v0.3.9: service-version=v0.1.8 #user space version number need not to be identical to LSM
+
+travis: lsm-version=v0.3.9
 travis: lib-version=v0.3.9 #user space version number need not to be identical to LSM
 travis: config-version=v0.4.0 #user space version number need not to be identical to LSM
 travis: cli-version=v0.1.7 #user space version number need not to be identical to LSM
 travis: service-version=v0.1.8 #user space version number need not to be identical to LSM
 
-all: v0.3.8
-package=0.5.0
+all: v0.3.9
+package=0.5.1
 
 prepare_provenance:
 	mkdir -p build
@@ -303,5 +309,7 @@ v0.3.6: prepare_provenance prepare_config prepare_cli prepare_service prepare_ls
 v0.3.7: prepare_provenance prepare_config prepare_cli prepare_service prepare_lsm config compile_lsm compile_provenance install_lsm install_provenance install_config install_cli install_service
 
 v0.3.8: prepare_provenance prepare_config prepare_cli prepare_service prepare_lsm config compile_lsm compile_provenance install_lsm install_provenance install_config install_cli install_service
+
+v0.3.9: prepare_provenance prepare_config prepare_cli prepare_service prepare_lsm config compile_lsm compile_provenance install_lsm install_provenance install_config install_cli install_service
 
 travis: prepare_provenance prepare_config prepare_cli prepare_service prepare_lsm config_travis compile_lsm compile_provenance install_lsm install_provenance install_cli
