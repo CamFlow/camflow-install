@@ -1,7 +1,7 @@
 # Getting started with CamFlow
 
-CamFlow has been built and tested with Fedora 23 ([Download here](https://getfedora.org/)).
-CamFlow should work with other Linux distributions, but we make no guarantee.
+CamFlow has been develeoped and tested on Fedora ([Download here](https://getfedora.org/)).
+We also try CamFlow on other Linux distributions, but we make no guarantee (please submit github issue if you encounter any problem).
 
 CamFlow's source code and patch notes can be found [here](https://github.com/camflow/camflow-dev).
 
@@ -24,6 +24,7 @@ sudo dnf install ncurses-devel cmake clang gcc-c++ wget git openssl-devel zlib p
 ```
 
 ### Ubuntu
+
 ``` shell
 sudo apt-get -y install build-essential
 sudo apt-get -y install libncurses-dev cmake clang g++ wget git libssl-dev bc nano patch mosquitto
