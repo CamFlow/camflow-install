@@ -157,7 +157,7 @@ travis: cli-version=v0.1.8 #user space version number need not to be identical t
 travis: service-version=v0.2.0 #user space version number need not to be identical to LSM
 
 all: v0.4.0
-package=0.7.0
+package=0.7.1
 
 prepare_provenance:
 	mkdir -p build
@@ -335,6 +335,5 @@ v0.3.10: prepare_provenance prepare_config prepare_cli prepare_service prepare_l
 v0.3.11: prepare_provenance prepare_config prepare_cli prepare_service prepare_lsm config compile_lsm compile_provenance install_lsm install_provenance install_config install_cli install_service
 
 v0.4.0: prepare_provenance prepare_config prepare_cli prepare_service prepare_lsm config compile_lsm compile_provenance install_lsm install_provenance install_config install_cli install_service
-
 
 travis: prepare_provenance prepare_config prepare_cli prepare_service prepare_lsm config_travis compile_lsm compile_provenance install_lsm install_provenance install_cli
