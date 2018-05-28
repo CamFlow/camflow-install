@@ -148,13 +148,13 @@ v0.4.0: lsm-version=v0.4.0
 v0.4.0: lib-version=v0.4.0 #user space version number need not to be identical to LSM
 v0.4.0: config-version=v0.4.1 #user space version number need not to be identical to LSM
 v0.4.0: cli-version=v0.1.8 #user space version number need not to be identical to LSM
-v0.4.0: service-version=v0.2.0 #user space version number need not to be identical to LSM
+v0.4.0: service-version=v0.2.1 #user space version number need not to be identical to LSM
 
 travis: lsm-version=v0.4.0
 travis: lib-version=v0.4.0 #user space version number need not to be identical to LSM
 travis: config-version=v0.4.1 #user space version number need not to be identical to LSM
 travis: cli-version=v0.1.8 #user space version number need not to be identical to LSM
-travis: service-version=v0.2.0 #user space version number need not to be identical to LSM
+travis: service-version=v0.2.1 #user space version number need not to be identical to LSM
 
 all: v0.4.0
 package=0.7.1
