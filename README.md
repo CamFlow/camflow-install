@@ -27,7 +27,7 @@ sudo dnf install ncurses-devel cmake clang gcc-c++ wget git openssl-devel zlib p
 
 ``` shell
 sudo apt-get -y install build-essential
-sudo apt-get -y install libncurses-dev cmake clang g++ wget git libssl-dev bc nano patch mosquitto bison flex
+sudo apt-get -y install libncurses-dev cmake clang g++ wget git libssl-dev bc nano patch mosquitto bison flex zlib1g-dev
 ```
 
 **WARNING**: package names and the package manager may vary across distribution.
