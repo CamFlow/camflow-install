@@ -1,6 +1,6 @@
 Summary: Install all CamFlow dependencies.
 Name: camflow
-Version: 0.7.4
+Version: 0.7.5
 Release: 1
 Group: audit/camflow
 License: GPLv2
