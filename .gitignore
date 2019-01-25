@@ -41,3 +41,4 @@ build/*
 *.dSYM/
 
 *.rpm
+camflow_*

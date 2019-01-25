@@ -301,9 +301,15 @@ rpm_us:
 	cd ./build/camflow-cli && $(MAKE) rpm
 	cd ./build/libprovenance && $(MAKE) rpm
 
+deb_us:
+	cd ./build/camconfd && $(MAKE) deb
+	cd ./build/camflowd && $(MAKE) deb
+	cd ./build/camflow-cli && $(MAKE) deb
+	cd ./build/libprovenance && $(MAKE) deb
+
 all_rpm: rpm_us rpm
 
-publish:
+publish_rpm:
 	cd ./output && package_cloud push camflow/provenance/fedora/27 camflow-$(package)-1.x86_64.rpm
 
 publish_us:
