@@ -186,14 +186,20 @@ v0.4.6: config-version=v0.4.1 #user space version number need not to be identica
 v0.4.6: cli-version=v0.1.10 #user space version number need not to be identical to LSM
 v0.4.6: service-version=v0.2.2 #user space version number need not to be identical to LSM
 
-travis: lsm-version=v0.4.6
-travis: lib-version=v0.4.4 #user space version number need not to be identical to LSM
-travis: config-version=v0.4.1 #user space version number need not to be identical to LSM
-travis: cli-version=v0.1.10 #user space version number need not to be identical to LSM
-travis: service-version=v0.2.2 #user space version number need not to be identical to LSM
+v0.5.0: lsm-version=v0.5.0
+v0.5.0: lib-version=v0.4.5 #user space version number need not to be identical to LSM
+v0.5.0: config-version=v0.4.2 #user space version number need not to be identical to LSM
+v0.5.0: cli-version=v0.1.11 #user space version number need not to be identical to LSM
+v0.5.0: service-version=v0.2.3 #user space version number need not to be identical to LSM
 
-all: v0.4.6
-package=0.7.7
+travis: lsm-version=v0.5.0
+travis: lib-version=v0.4.5 #user space version number need not to be identical to LSM
+travis: config-version=v0.4.2 #user space version number need not to be identical to LSM
+travis: cli-version=v0.1.11 #user space version number need not to be identical to LSM
+travis: service-version=v0.2.3 #user space version number need not to be identical to LSM
+
+all: v0.5.0
+package=0.8.0
 
 prepare_provenance:
 	mkdir -p build
@@ -389,5 +395,7 @@ v0.4.4: prepare_provenance prepare_config prepare_cli prepare_service prepare_ls
 v0.4.5: prepare_provenance prepare_config prepare_cli prepare_service prepare_lsm config compile_lsm compile_provenance install_lsm install_provenance install_config install_cli install_service
 
 v0.4.6: prepare_provenance prepare_config prepare_cli prepare_service prepare_lsm config compile_lsm compile_provenance install_lsm install_provenance install_config install_cli install_service
+
+v0.5.0: prepare_provenance prepare_config prepare_cli prepare_service prepare_lsm config compile_lsm compile_provenance install_lsm install_provenance install_config install_cli install_service
 
 travis: prepare_provenance prepare_config prepare_cli prepare_service prepare_lsm config_travis compile_lsm compile_provenance install_lsm install_provenance install_cli
