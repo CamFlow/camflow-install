@@ -324,7 +324,7 @@ publish_us:
 	cd ./build/camflow-cli && $(MAKE) publish
 	cd ./build/libprovenance && $(MAKE) publish
 
-publish_all: publish_us publish
+publish_all: publish_us publish_rpm
 
 v0.1.0: prepare_ifc prepare_provenance prepare_lsm config compile_lsm compile_ifc compile_provenance install_lsm install_provenance install_ifc
 
