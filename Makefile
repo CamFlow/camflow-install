@@ -194,12 +194,12 @@ v0.5.0: service-version=v0.2.3 #user space version number need not to be identic
 
 travis: lsm-version=v0.5.0
 travis: lib-version=v0.4.5 #user space version number need not to be identical to LSM
-travis: config-version=v0.4.2 #user space version number need not to be identical to LSM
+travis: config-version=v0.4.3 #user space version number need not to be identical to LSM
 travis: cli-version=v0.1.11 #user space version number need not to be identical to LSM
 travis: service-version=v0.2.3 #user space version number need not to be identical to LSM
 
 all: v0.5.0
-package=0.8.0
+package=0.8.1
 
 prepare_provenance:
 	mkdir -p build
