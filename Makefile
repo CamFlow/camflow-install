@@ -341,7 +341,7 @@ install_rpm:
 
 install_deb:
 	curl -s https://packagecloud.io/install/repositories/camflow/provenance/script.deb.sh | sudo bash
-	sudo apt-get install -y libprovenance$(lib-inst-version)-2
+	sudo apt-get install -y libprovenance=$(lib-inst-version)-2
 	sudo apt-get install -y camflowd=$(service-inst-version)-2
 	sudo apt-get install -y camflow-cli=$(cli-inst-version)-2
 	sudo apt-get install -y camconfd=$(config-inst-version)-2
