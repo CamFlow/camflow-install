@@ -192,11 +192,18 @@ v0.5.0: config-version=v0.4.2 #user space version number need not to be identica
 v0.5.0: cli-version=v0.1.11 #user space version number need not to be identical to LSM
 v0.5.0: service-version=v0.2.3 #user space version number need not to be identical to LSM
 
-travis: lsm-version=v0.5.0
-travis: lib-version=v0.4.5 #user space version number need not to be identical to LSM
-travis: config-version=v0.4.3 #user space version number need not to be identical to LSM
-travis: cli-version=v0.1.11 #user space version number need not to be identical to LSM
-travis: service-version=v0.2.3 #user space version number need not to be identical to LSM
+lsm-inst-version=0.5.0
+lib-inst-version=0.4.5
+config-inst-version=0.4.2
+cli-inst-version=0.1.11
+service-inst-version=0.2.3
+kernel-inst-version=4.20.5
+
+travis: lsm-version=v$(lsm-inst-version)
+travis: lib-version=v$(lib-inst-version) #user space version number need not to be identical to LSM
+travis: config-version=v$(config-inst-version) #user space version number need not to be identical to LSM
+travis: cli-version=v$(cli-inst-version) #user space version number need not to be identical to LSM
+travis: service-version=v$(service-inst-version) #user space version number need not to be identical to LSM
 
 all: v0.5.0
 package=0.8.1
@@ -307,13 +314,13 @@ rpm_us:
 	cd ./build/camflow-cli && $(MAKE) rpm
 	cd ./build/libprovenance && $(MAKE) rpm
 
+all_rpm: rpm_us rpm
+
 deb_us:
 	cd ./build/camconfd && $(MAKE) deb
 	cd ./build/camflowd && $(MAKE) deb
 	cd ./build/camflow-cli && $(MAKE) deb
 	cd ./build/libprovenance && $(MAKE) deb
-
-all_rpm: rpm_us rpm
 
 publish_rpm:
 	cd ./output && package_cloud push camflow/provenance/fedora/27 camflow-$(package)-1.x86_64.rpm
@@ -325,6 +332,24 @@ publish_us:
 	cd ./build/libprovenance && $(MAKE) publish
 
 publish_all: publish_us publish_rpm
+
+install_rpm:
+	curl -s https://packagecloud.io/install/repositories/camflow/provenance/script.rpm.sh | sudo bash
+	sudo dnf -y install camflow
+	sudo systemctl enable camconfd.service
+	sudo systemctl enable camflowd.service
+
+install_deb:
+	curl -s https://packagecloud.io/install/repositories/camflow/provenance/script.deb.sh | sudo bash
+	sudo apt-get install -y libprovenance$(lib-inst-version)-2
+	sudo apt-get install -y camflowd=$(service-inst-version)-2
+	sudo apt-get install -y camflow-cli=$(cli-inst-version)-2
+	sudo apt-get install -y camconfd=$(config-inst-version)-2
+	sudo apt-get install -y linux-libc-dev=$(kernel-inst-version)camflow$(lsm-inst-version)+-1
+	sudo apt-get install -y linux-image-$(kernel-inst-version)camflow$(lsm-inst-version)+=$(kernel-inst-version)camflow$(lsm-inst-version)+-1
+	sudo apt-get install -y linux-headers-$(kernel-inst-version)camflow$(lsm-inst-version)+=$(kernel-inst-version)camflow$(lsm-inst-version)+-1
+	sudo systemctl enable camconfd.service
+	sudo systemctl enable camflowd.service
 
 v0.1.0: prepare_ifc prepare_provenance prepare_lsm config compile_lsm compile_ifc compile_provenance install_lsm install_provenance install_ifc
 
