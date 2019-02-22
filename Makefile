@@ -209,7 +209,7 @@ lib-inst-version=0.4.6
 config-inst-version=0.4.4
 cli-inst-version=0.1.13
 service-inst-version=0.2.3
-kernel-inst-version=4.20.7
+kernel-inst-version=4.20.11
 
 travis: lsm-version=v$(lsm-inst-version)
 travis: lib-version=v$(lib-inst-version) #user space version number need not to be identical to LSM
