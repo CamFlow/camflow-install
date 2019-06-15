@@ -216,7 +216,13 @@ v0.6.0: config-version=v0.4.4 #user space version number need not to be identica
 v0.6.0: cli-version=v0.1.13 #user space version number need not to be identical to LSM
 v0.6.0: service-version=v0.2.3 #user space version number need not to be identical to LSM
 
-lsm-inst-version=0.6.0
+v0.6.1: lsm-version=v0.6.1
+v0.6.0: lib-version=v0.4.7 #user space version number need not to be identical to LSM
+v0.6.0: config-version=v0.4.4 #user space version number need not to be identical to LSM
+v0.6.0: cli-version=v0.1.13 #user space version number need not to be identical to LSM
+v0.6.0: service-version=v0.2.3 #user space version number need not to be identical to LSM
+
+lsm-inst-version=0.6.1
 lib-inst-version=0.4.7
 config-inst-version=0.4.4
 cli-inst-version=0.1.13
@@ -229,8 +235,8 @@ travis: config-version=v$(config-inst-version) #user space version number need n
 travis: cli-version=v$(cli-inst-version) #user space version number need not to be identical to LSM
 travis: service-version=v$(service-inst-version) #user space version number need not to be identical to LSM
 
-all: v0.6.0
-package=0.9.0
+all: v0.6.1
+package=0.9.1
 
 prepare_provenance:
 	mkdir -p build
@@ -454,5 +460,7 @@ v0.5.2: prepare_provenance prepare_config prepare_cli prepare_service prepare_ls
 v0.5.3: prepare_provenance prepare_config prepare_cli prepare_service prepare_lsm config compile_lsm compile_provenance install_lsm install_provenance install_config install_cli install_service
 
 v0.6.0: prepare_provenance prepare_config prepare_cli prepare_service prepare_lsm config compile_lsm compile_provenance install_lsm install_provenance install_config install_cli install_service
+
+v0.6.1: prepare_provenance prepare_config prepare_cli prepare_service prepare_lsm config compile_lsm compile_provenance install_lsm install_provenance install_config install_cli install_service
 
 travis: prepare_provenance prepare_config prepare_cli prepare_service prepare_lsm config_travis compile_lsm compile_provenance install_lsm install_provenance install_cli
