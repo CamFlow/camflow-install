@@ -217,10 +217,10 @@ v0.6.0: cli-version=v0.1.13 #user space version number need not to be identical 
 v0.6.0: service-version=v0.2.3 #user space version number need not to be identical to LSM
 
 v0.6.1: lsm-version=v0.6.1
-v0.6.0: lib-version=v0.4.7 #user space version number need not to be identical to LSM
-v0.6.0: config-version=v0.4.4 #user space version number need not to be identical to LSM
-v0.6.0: cli-version=v0.1.13 #user space version number need not to be identical to LSM
-v0.6.0: service-version=v0.2.3 #user space version number need not to be identical to LSM
+v0.6.1: lib-version=v0.4.7 #user space version number need not to be identical to LSM
+v0.6.1: config-version=v0.4.4 #user space version number need not to be identical to LSM
+v0.6.1: cli-version=v0.1.13 #user space version number need not to be identical to LSM
+v0.6.1: service-version=v0.2.3 #user space version number need not to be identical to LSM
 
 lsm-inst-version=0.6.1
 lib-inst-version=0.4.7
