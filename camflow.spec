@@ -12,7 +12,7 @@ Requires: camflow-cli = 0.1.14
 Requires: kernel = 5.2.9camflow0.6.3
 Requires: kernel-headers = 5.2.9camflow0.6.3
 Requires: kernel-devel = 5.2.9camflow0.6.3
-Requires: libprovenance = 0.4.8
+Requires: libprovenance = 0.4.9
 
 %description
 %{summary}
