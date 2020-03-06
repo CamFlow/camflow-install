@@ -7,7 +7,7 @@ License: GPLv2
 Source: %{expand:%%(pwd)}
 BuildRoot: %{_topdir}/BUILD/%{name}-%{version}-%{release}
 Requires: camconfd = 0.4.5
-Requires: camflowd = 0.2.4
+Requires: camflowd = 0.2.5
 Requires: camflow-cli = 0.1.14
 Requires: kernel = 5.4.15camflow0.6.4
 Requires: kernel-headers = 5.4.15camflow0.6.4

@@ -238,14 +238,14 @@ v0.6.4: lsm-version=v0.6.4
 v0.6.4: lib-version=v0.4.10 #user space version number need not to be identical to LSM
 v0.6.4: config-version=v0.4.5 #user space version number need not to be identical to LSM
 v0.6.4: cli-version=v0.1.14 #user space version number need not to be identical to LSM
-v0.6.4: service-version=v0.2.4 #user space version number need not to be identical to LSM
+v0.6.4: service-version=v0.2.5 #user space version number need not to be identical to LSM
 
 kernel-inst-version=5.4.15
 lsm-inst-version=0.6.4
 lib-inst-version=0.4.10
 config-inst-version=0.4.5
 cli-inst-version=0.1.14
-service-inst-version=0.2.4
+service-inst-version=0.2.5
 
 travis: lsm-version=v$(lsm-inst-version)
 travis: lib-version=v$(lib-inst-version) #user space version number need not to be identical to LSM
