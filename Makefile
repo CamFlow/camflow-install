@@ -254,7 +254,7 @@ travis: cli-version=v$(cli-inst-version) #user space version number need not to 
 travis: service-version=v$(service-inst-version) #user space version number need not to be identical to LSM
 
 all: v0.6.4
-package=0.9.4
+package=0.9.5
 
 prepare_provenance:
 	mkdir -p build
