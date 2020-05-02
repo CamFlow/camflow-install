@@ -107,7 +107,7 @@ deb_us:
 	cd ./build/libprovenance && $(MAKE) deb
 
 publish_rpm:
-	cd ./output && package_cloud push camflow/provenance/fedora/29 camflow-$(package-version)-1.x86_64.rpm
+	cd ./output && package_cloud push camflow/provenance/fedora/31 camflow-$(package-version)-1.x86_64.rpm
 
 publish_us:
 	cd ./build/camconfd && $(MAKE) publish
