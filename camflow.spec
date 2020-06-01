@@ -13,6 +13,7 @@ Requires: kernel = 5.6.15-201.camflow.fc31
 Requires: kernel-core = 5.6.15-201.camflow.fc31
 Requires: kernel-modules = 5.6.15-201.camflow.fc31
 Requires: kernel-devel = 5.6.15-201.camflow.fc31
+Requires: kernel-headers = 5.6.15-201.camflow.fc31
 Requires: libprovenance = 0.4.11
 
 %description
