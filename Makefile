@@ -1,10 +1,10 @@
-kernel-version=v5.6.7
-lsm-version=v0.6.6
+kernel-version=v5.6.15
+lsm-version=v0.6.7
 lib-version=v0.4.11
 config-version=v0.4.6
 cli-version=v0.1.15
 service-version=v0.2.6
-package-version=0.9.7
+package-version=0.9.8
 
 prepare_provenance:
 	mkdir -p build
