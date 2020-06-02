@@ -1,44 +1,44 @@
-kernel-version=v5.6.15
-lsm-version=v0.6.7
-lib-version=v0.4.11
-config-version=v0.4.6
-cli-version=v0.1.15
-service-version=v0.2.6
+kernel-version=5.6.15
+lsm-version=0.6.7
+lib-version=0.4.11
+config-version=0.4.6
+cli-version=0.1.15
+service-version=0.2.6
 package-version=0.9.8
 
 prepare_provenance:
 	mkdir -p build
-	@echo "Downloading provenance library ${lib-version} ..."
+	@echo "Downloading provenance library v${lib-version} ..."
 	cd ./build && git clone https://github.com/camflow/libprovenance.git
-	cd ./build/libprovenance && git checkout tags/${lib-version}
+	cd ./build/libprovenance && git checkout tags/v${lib-version}
 	cd ./build/libprovenance && $(MAKE) prepare
 
 prepare_config:
 	mkdir -p build
-	@echo "Downloading configuration service ${config-version} ..."
+	@echo "Downloading configuration service v${config-version} ..."
 	cd ./build && git clone https://github.com/camflow/camconfd.git
-	cd ./build/camconfd && git checkout tags/${config-version}
+	cd ./build/camconfd && git checkout tags/v${config-version}
 	cd ./build/camconfd && $(MAKE) prepare
 
 prepare_cli:
 	mkdir -p build
-	@echo "Downloading command line interface ${cli-version} ..."
+	@echo "Downloading command line interface v${cli-version} ..."
 	cd ./build && git clone https://github.com/camflow/camflow-cli.git
-	cd ./build/camflow-cli && git checkout tags/${cli-version}
+	cd ./build/camflow-cli && git checkout tags/v${cli-version}
 	cd ./build/camflow-cli && $(MAKE) prepare
 
 prepare_service:
 	mkdir -p build
-	@echo "Downloading service ${service-version} ..."
+	@echo "Downloading service v${service-version} ..."
 	cd ./build && git clone https://github.com/camflow/camflowd.git
-	cd ./build/camflowd && git checkout tags/${service-version}
+	cd ./build/camflowd && git checkout tags/v${service-version}
 	cd ./build/camflowd && $(MAKE) prepare
 
 prepare_lsm:
 	mkdir -p build
 	@echo "Downloading LSM patches..."
 	cd ./build && git clone https://github.com/camflow/camflow-patches.git
-	cd ./build/camflow-patches && git checkout tags/${lsm-version}
+	cd ./build/camflow-patches && git checkout tags/v${lsm-version}
 	cd ./build/camflow-patches && $(MAKE) prepare
 
 config:
