@@ -21,6 +21,7 @@ before_install:
   - sudo apt-get -y install libedit-dev
   - sudo apt-get -y install libbsd-dev
   - sudo apt-get -y install dwarves
+  - sudo apt-get -y install uthash-dev
 
 script:
   - sudo unlink /usr/bin/gcc && sudo ln -s /usr/bin/gcc-7 /usr/bin/gcc
