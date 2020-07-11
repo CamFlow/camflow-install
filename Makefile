@@ -1,10 +1,10 @@
-kernel-version=5.6.15
-lsm-version=0.6.7
-lib-version=0.4.11
-config-version=0.4.6
-cli-version=0.1.15
-service-version=0.2.6
-package-version=0.9.8
+kernel-version=5.7.7
+lsm-version=0.7.0
+lib-version=0.5.0
+config-version=0.5.0
+cli-version=0.2.0
+service-version=0.3.0
+package-version=0.10.0
 
 prepare_provenance:
 	mkdir -p build
@@ -107,7 +107,7 @@ deb_us:
 	cd ./build/libprovenance && $(MAKE) deb
 
 publish_rpm:
-	cd ./output && package_cloud push camflow/provenance/fedora/31 camflow-$(package-version)-1.x86_64.rpm
+	cd ./output && package_cloud push camflow/provenance/fedora/32 camflow-$(package-version)-1.x86_64.rpm
 
 publish_us:
 	cd ./build/camconfd && $(MAKE) publish
