@@ -4,7 +4,7 @@ lib-version=0.5.1
 config-version=0.5.0
 cli-version=0.2.0
 service-version=0.3.0
-package-version=0.10.0
+package-version=0.10.1
 
 prepare_provenance:
 	mkdir -p build
