@@ -1,10 +1,10 @@
 kernel-version=5.7.7
 lsm-version=0.7.0
-lib-version=0.5.1
+lib-version=0.5.2
 config-version=0.5.0
 cli-version=0.2.0
 service-version=0.3.0
-package-version=0.10.1
+package-version=0.10.2
 
 prepare_provenance:
 	mkdir -p build
