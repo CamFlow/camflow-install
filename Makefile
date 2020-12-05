@@ -1,16 +1,18 @@
-kernel-version=5.7.7
-lsm-version=0.7.0
-lib-version=0.5.2
-config-version=0.5.0
-cli-version=0.2.0
-service-version=0.3.0
-package-version=0.10.2
+kernel-version=5.9.11
+lsm-version=0.7.1
+lib-version=0.5.3
+config-version=0.5.1
+cli-version=0.2.1
+service-version=0.3.1
+package-version=0.11.0
+fedora-version=33
 
 prepare_provenance:
 	mkdir -p build
 	@echo "Downloading provenance library v${lib-version} ..."
 	cd ./build && git clone https://github.com/camflow/libprovenance.git
 	cd ./build/libprovenance && git checkout tags/v${lib-version}
+	cd ./build/libprovenance && git submodule update --init --recursive
 	cd ./build/libprovenance && $(MAKE) prepare
 
 prepare_config:
@@ -107,7 +109,7 @@ deb_us:
 	cd ./build/libprovenance && $(MAKE) deb
 
 publish_rpm:
-	cd ./output && package_cloud push camflow/provenance/fedora/32 camflow-$(package-version)-1.x86_64.rpm
+	cd ./output && package_cloud push camflow/provenance/fedora/${fedora-version} camflow-$(package-version)-1.x86_64.rpm
 
 publish_us:
 	cd ./build/camconfd && $(MAKE) publish
