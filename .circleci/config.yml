@@ -22,7 +22,7 @@ jobs:
           - run: 'sudo apt-get install libncurses5-dev libncursesw5-dev bc'
           - run: 'sudo apt-get install libssl-dev pkg-config zsh libelf-dev'
           - run: 'sudo apt-get install bison flex sqlite3 libsqlite3-dev'
-          - run: 'sudo apt-get install liblz4-tool liblz4-dev'
+          - run: 'sudo apt-get install liblz4-tool liblz4-dev dwarves'
           - run: 'sudo apt-get install --reinstall make'
           - run: 'make travis'
 workflows:
