@@ -47,7 +47,7 @@ config:
 	@echo "Starting kernel configuration ..."
 	cd ./build/camflow-patches && $(MAKE) config
 
-config_travis:
+config_cirlce:
 	@echo "Starting kernel configuration ..."
 	cd ./build/camflow-patches && $(MAKE) config_travis
 
@@ -139,4 +139,4 @@ install_deb:
 
 all: prepare_provenance prepare_config prepare_cli prepare_service prepare_lsm config compile_lsm compile_provenance install_lsm install_provenance install_config install_cli install_service
 
-travis: prepare_provenance prepare_config prepare_cli prepare_service prepare_lsm config_travis compile_lsm compile_provenance install_lsm install_provenance install_cli
+circle: prepare_provenance prepare_config prepare_cli prepare_service prepare_lsm config_cirlce compile_lsm compile_provenance install_lsm install_provenance install_cli
