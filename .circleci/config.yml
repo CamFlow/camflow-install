@@ -30,6 +30,8 @@ jobs:
           - run: 'git clone https://github.com/eclipse/paho.mqtt.c.git'
           - run: 'cd paho.mqtt.c && make && sudo make install'
           - run: 'make circle'
+          - run: 'make all_rpm'
+          - run: 'make deb_us'
 workflows:
   version: 2
   build-and-deploy:
