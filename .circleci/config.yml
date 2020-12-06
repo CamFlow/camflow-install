@@ -27,7 +27,7 @@ jobs:
           - run: 'sudo apt-get install -y ./dwarves_1.17-1_amd64.deb'
           - run: 'sudo apt-get install -y uthash-dev'
           - run: 'sudo apt-get install --reinstall make'
-          - run: 'make all'
+          - run: 'make circle'
 workflows:
   version: 2
   build-and-deploy:

@@ -139,4 +139,4 @@ install_deb:
 
 all: prepare_provenance prepare_config prepare_cli prepare_service prepare_lsm config compile_lsm compile_provenance install_lsm install_provenance install_config install_cli install_service
 
-circle: prepare_provenance prepare_config prepare_cli prepare_service prepare_lsm config_cirlce compile_lsm compile_provenance install_lsm install_provenance install_cli
+circle: prepare_provenance prepare_config prepare_cli prepare_service prepare_lsm config_cirlce compile_lsm compile_provenance install_lsm install_provenance install_config install_cli install_service
