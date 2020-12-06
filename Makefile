@@ -89,7 +89,12 @@ clean:
 	sudo rm -rf ./build
 
 rpm:
-	mkdir -p ~/rpmbuild/{RPMS,SRPMS,BUILD,SOURCES,SPECS,tmp}
+	mkdir -p ~/rpmbuild/RPMS
+	mkdir -p ~/rpmbuild/SRPMS
+	mkdir -p ~/rpmbuild/BUILD
+	mkdir -p ~/rpmbuild/SOURCES
+	mkdir -p ~/rpmbuild/SPECS
+	mkdir -p ~/rpmbuild/tmp
 	rpmbuild -bb camflow.spec
 	mkdir -p output
 	cp ~/rpmbuild/RPMS/x86_64/* ./output
@@ -100,7 +105,7 @@ rpm_us:
 	cd ./build/camflow-cli && $(MAKE) rpm
 	cd ./build/libprovenance && $(MAKE) rpm
 
-all_rpm: rpm_us rpm
+all_rpm: rpm rpm_us
 
 deb_us:
 	cd ./build/camconfd && $(MAKE) deb
