@@ -27,6 +27,8 @@ jobs:
           - run: 'sudo apt-get install -y ./dwarves_1.17-1_amd64.deb'
           - run: 'sudo apt-get install -y uthash-dev libinih-dev'
           - run: 'sudo apt-get install --reinstall make'
+          - run: 'git clone https://github.com/eclipse/paho.mqtt.c.git'
+          - run: 'cd paho.mqtt.c && make && sudo make install'
           - run: 'make circle'
 workflows:
   version: 2
