@@ -6,8 +6,6 @@ jobs:
         working_directory: ~/build
         steps:
           - checkout
-          - attach_workspace:
-              at: ~/build
           - run: 'sudo apt-get install -y apt-utils'
           - run: 'sudo apt-get install -y sudo'
           - run: 'sudo apt-get install -y software-properties-common'
