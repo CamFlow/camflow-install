@@ -100,12 +100,18 @@ rpm:
 	cp ~/rpmbuild/RPMS/x86_64/* ./output
 
 rpm_us:
+	mkdir -p ~/rpmbuild/RPMS
+	mkdir -p ~/rpmbuild/SRPMS
+	mkdir -p ~/rpmbuild/BUILD
+	mkdir -p ~/rpmbuild/SOURCES
+	mkdir -p ~/rpmbuild/SPECS
+	mkdir -p ~/rpmbuild/tmp
 	cd ./build/camconfd && $(MAKE) rpm
 	cd ./build/camflowd && $(MAKE) rpm
 	cd ./build/camflow-cli && $(MAKE) rpm
 	cd ./build/libprovenance && $(MAKE) rpm
 
-all_rpm: rpm rpm_us
+all_rpm: rpm_us rpm
 
 deb_us:
 	cd ./build/camconfd && $(MAKE) deb
