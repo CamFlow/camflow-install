@@ -47,7 +47,7 @@ config:
 	@echo "Starting kernel configuration ..."
 	cd ./build/camflow-patches && $(MAKE) config
 
-config_travis:
+config_cirlce:
 	@echo "Starting kernel configuration ..."
 	cd ./build/camflow-patches && $(MAKE) config_travis
 
@@ -89,12 +89,23 @@ clean:
 	sudo rm -rf ./build
 
 rpm:
-	mkdir -p ~/rpmbuild/{RPMS,SRPMS,BUILD,SOURCES,SPECS,tmp}
+	mkdir -p ~/rpmbuild/RPMS
+	mkdir -p ~/rpmbuild/SRPMS
+	mkdir -p ~/rpmbuild/BUILD
+	mkdir -p ~/rpmbuild/SOURCES
+	mkdir -p ~/rpmbuild/SPECS
+	mkdir -p ~/rpmbuild/tmp
 	rpmbuild -bb camflow.spec
 	mkdir -p output
 	cp ~/rpmbuild/RPMS/x86_64/* ./output
 
 rpm_us:
+	mkdir -p ~/rpmbuild/RPMS
+	mkdir -p ~/rpmbuild/SRPMS
+	mkdir -p ~/rpmbuild/BUILD
+	mkdir -p ~/rpmbuild/SOURCES
+	mkdir -p ~/rpmbuild/SPECS
+	mkdir -p ~/rpmbuild/tmp
 	cd ./build/camconfd && $(MAKE) rpm
 	cd ./build/camflowd && $(MAKE) rpm
 	cd ./build/camflow-cli && $(MAKE) rpm
@@ -139,4 +150,4 @@ install_deb:
 
 all: prepare_provenance prepare_config prepare_cli prepare_service prepare_lsm config compile_lsm compile_provenance install_lsm install_provenance install_config install_cli install_service
 
-travis: prepare_provenance prepare_config prepare_cli prepare_service prepare_lsm config_travis compile_lsm compile_provenance install_lsm install_provenance install_cli
+circle: prepare_provenance prepare_config prepare_cli prepare_service prepare_lsm config_cirlce compile_lsm compile_provenance install_lsm install_provenance install_config install_cli install_service
