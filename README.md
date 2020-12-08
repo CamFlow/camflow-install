@@ -9,7 +9,7 @@ CamFlow's source code and patch notes can be found [here](https://github.com/cam
 
 | Branch | Status                                                                                  |
 |--------|-----------------------------------------------------------------------------------------|
-| master | [![Master Build Status](https://api.travis-ci.org/CamFlow/camflow-install.svg)](https://travis-ci.org/CamFlow/camflow-install/branches)  |
+| master | [![Master Build Status](https://circleci.com/gh/CamFlow/camflow-install.png?circle-token=:circle-token)](https://app.circleci.com/pipelines/github/CamFlow/camflow-install)  |
 
 Automated Travis test verifies:
 - verifies that the latest release build.
