@@ -52,7 +52,31 @@ jobs:
             - cloudsmith/publish:
                 allow-republish: true
                 cloudsmith-repository: camflow/camflow
-                package-path: output/kernel-5*.x86_64.rpm
+                package-path: output/camconfd-*.rpm
+                package-format: rpm
+                package-distribution: fedora/33
+            - cloudsmith/publish:
+                allow-republish: true
+                cloudsmith-repository: camflow/camflow
+                package-path: output/camflowd-*.rpm
+                package-format: rpm
+                package-distribution: fedora/33
+            - cloudsmith/publish:
+                allow-republish: true
+                cloudsmith-repository: camflow/camflow
+                package-path: output/libprovenance-*.rpm
+                package-format: rpm
+                package-distribution: fedora/33
+            - cloudsmith/publish:
+                allow-republish: true
+                cloudsmith-repository: camflow/camflow
+                package-path: output/camflow-cli-*.rpm
+                package-format: rpm
+                package-distribution: fedora/33
+            - cloudsmith/publish:
+                allow-republish: true
+                cloudsmith-repository: camflow/camflow
+                package-path: output/camflow-0*.rpm
                 package-format: rpm
                 package-distribution: fedora/33
 workflows:
