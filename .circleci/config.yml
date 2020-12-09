@@ -33,8 +33,25 @@ jobs:
           - run: 'make circle'
           - run: 'make all_rpm'
           - run: 'make deb_us'
+  publish:
+    executor: cloudsmith/default
+    working_directory: ~/build
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ~/build
+      - cloudsmith/ensure-api-key
+      - cloudsmith/install-cli
+      - run: 'cd ./output && ls'
+      - cloudsmith/publish:
+          allow-republish: true
+          cloudsmith-repository: camflow/camflow
+          package-path: output/kernel-5*.x86_64.rpm
+          package-format: rpm
+          package-distribution: fedora/33
 workflows:
   version: 2
   build-and-deploy:
       jobs:
           - build
+          - publish
