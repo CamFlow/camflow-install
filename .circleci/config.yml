@@ -35,6 +35,10 @@ jobs:
           - run: 'make circle'
           - run: 'make all_rpm'
           - run: 'make deb_us'
+          - persist_to_workspace:
+              root: ~/build
+              paths:
+                  - output
     publish:
         executor: cloudsmith/default
         working_directory: ~/build
