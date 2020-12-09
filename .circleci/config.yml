@@ -1,4 +1,6 @@
 version: 2.1
+orbs:
+    cloudsmith: cloudsmith/cloudsmith@1.0.1
 jobs:
     build:
         machine:
