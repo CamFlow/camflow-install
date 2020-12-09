@@ -3,42 +3,36 @@ orbs:
     cloudsmith: cloudsmith/cloudsmith@1.0.1
 jobs:
     build:
-        machine:
-          image: ubuntu-2004:202010-01
+        docker:
+            - image: fedora:33
+        resource_class: large
         working_directory: ~/build
         steps:
-          - checkout
-          - run: 'sudo apt-get install -y apt-utils'
-          - run: 'sudo apt-get install -y sudo'
-          - run: 'sudo apt-get install -y software-properties-common'
-          - run: 'sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test'
-          - run: 'sudo apt-get update'
-          - run: 'sudo apt-get update -qq'
-          - run: 'sudo apt-get install -y g++-9 gcc-9 zstd'
-          - run: 'sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 60 --slave /usr/bin/g++ g++ /usr/bin/g++-9'
-          - run: 'sudo update-alternatives --config gcc'
-          - run: 'gcc --version'
-          - run: 'g++ --version'
-          - run: 'sudo apt-get install -y uncrustify rsync build-essential'
-          - run: 'sudo apt-get install -y ruby python autoconf automake libtool'
-          - run: 'sudo apt-get install -y libncurses5-dev libncursesw5-dev bc'
-          - run: 'sudo apt-get install -y libssl-dev pkg-config zsh libelf-dev'
-          - run: 'sudo apt-get install -y bison flex sqlite3 libsqlite3-dev'
-          - run: 'sudo apt-get install -y liblz4-tool liblz4-dev'
-          - run: 'wget http://archive.ubuntu.com/ubuntu/pool/universe/d/dwarves-dfsg/dwarves_1.17-1_amd64.deb'
-          - run: 'sudo apt-get install -y ./dwarves_1.17-1_amd64.deb'
-          - run: 'sudo apt-get install -y uthash-dev libinih-dev'
-          - run: 'sudo apt-get install -y rpm alien'
-          - run: 'sudo apt-get install --reinstall make'
-          - run: 'git clone https://github.com/eclipse/paho.mqtt.c.git'
-          - run: 'cd paho.mqtt.c && make && sudo make install'
-          - run: 'make circle'
-          - run: 'make all_rpm'
-          - run: 'make deb_us'
-          - persist_to_workspace:
-              root: ~/build
-              paths:
-                  - output
+            - checkout
+            - run: "sudo dnf -y -v groupinstall 'Development Tools'"
+            - run: 'sudo dnf -y -v install fedpkg fedora-packager rpmdevtools ncurses-devel'
+            - run: 'sudo dnf -y -v install cmake clang gcc-c++ wget git pesign grubby'
+            - run: 'sudo dnf -y -v install openssl-devel bc nano patch mosquitto sparse'
+            - run: 'sudo dnf -y -v install flawfinder elfutils-libelf-devel'
+            - run: 'sudo dnf -y -v install bison flex'
+            - run: 'sudo dnf -y -v install uthash-devel'
+            - run: 'sudo dnf -y -v install inih-devel'
+            - run: 'sudo dnf -y -v install paho-c-devel'
+            - run: 'sudo dnf -y -v install uncrustify'
+            - run: 'sudo dnf -y -v install rpm-build redhat-rpm-config'
+            - run: 'sudo dnf -y -v install coccinelle'
+            - run: 'sudo dnf -y -v install automake'
+            - run: 'sudo dnf -y -v install alien'
+            - run: 'sudo dnf -y -v install dwarves'
+            - run: 'sudo dnf -y -v install llvm bpftool libbpf libbpf-devel elfutils-libelf'
+            - run: 'sudo dnf -y -v install libcap'
+            - run: 'sudo dnf -y -v install openssl'
+            - run: 'make circle'
+            - run: 'make all_rpm'
+            - persist_to_workspace:
+                root: ~/build
+                paths:
+                    - output
     publish:
         executor: cloudsmith/default
         working_directory: ~/build
@@ -79,30 +73,6 @@ jobs:
                 package-path: output/camflow-0*.rpm
                 package-format: rpm
                 package-distribution: fedora/33
-            - cloudsmith/publish:
-                allow-republish: true
-                cloudsmith-repository: camflow/camflow
-                package-path: build/camconfd/output/camconfd*.deb
-                package-format: deb
-                package-distribution: ubuntu/bionic
-            - cloudsmith/publish:
-                allow-republish: true
-                cloudsmith-repository: camflow/camflow
-                package-path: build/camflowd/output/camflowd*.deb
-                package-format: deb
-                package-distribution: ubuntu/bionic
-            - cloudsmith/publish:
-                allow-republish: true
-                cloudsmith-repository: camflow/camflow
-                package-path: build/libprovenance/output/libprovenance*.deb
-                package-format: deb
-                package-distribution: ubuntu/bionic
-            - cloudsmith/publish:
-                allow-republish: true
-                cloudsmith-repository: camflow/camflow
-                package-path: build/camflow-cli/output/camflow-cli*.deb
-                package-format: deb
-                package-distribution: ubuntu/bionic
 workflows:
   version: 2
   build-and-deploy:
