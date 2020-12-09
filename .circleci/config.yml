@@ -28,6 +28,7 @@ jobs:
             - run: 'sudo dnf -y -v install libcap'
             - run: 'sudo dnf -y -v install openssl'
             - run: 'sudo dnf -y -v install rsync'
+            - run: 'sudo dnf -y -v install ruby'
             - run: 'make circle'
             - run: 'make all_rpm'
             - persist_to_workspace:
