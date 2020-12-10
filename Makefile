@@ -4,7 +4,7 @@ lib-version=0.5.3
 config-version=0.5.1
 cli-version=0.2.1
 service-version=0.3.1
-package-version=0.11.0
+package-version=0.13.0
 fedora-version=33
 
 prepare_provenance:
@@ -131,20 +131,8 @@ publish_us:
 publish_all: publish_us publish_rpm
 
 install_rpm:
-	curl -s https://packagecloud.io/install/repositories/camflow/provenance/script.rpm.sh | sudo bash
+	curl -1sLf 'https://dl.cloudsmith.io/public/camflow/camflow/cfg/setup/bash.rpm.sh' | sudo -E bash
 	sudo dnf -y install camflow
-	sudo systemctl enable camconfd.service
-	sudo systemctl enable camflowd.service
-
-install_deb:
-	curl -s https://packagecloud.io/install/repositories/camflow/provenance/script.deb.sh | sudo bash
-	sudo apt-get install -y libprovenance=$(lib-version)-2
-	sudo apt-get install -y camflowd=$(service-version)-2
-	sudo apt-get install -y camflow-cli=$(cli-version)-2
-	sudo apt-get install -y camconfd=$(config-version)-2
-	sudo apt-get install -y linux-libc-dev=$(kernel-version)camflow$(lsm-version)+-1
-	sudo apt-get install -y linux-image-$(kernel-version)camflow$(lsm-version)+=$(kernel-version)camflow$(lsm-version)+-1
-	sudo apt-get install -y linux-headers-$(kernel-version)camflow$(lsm-version)+=$(kernel-version)camflow$(lsm-version)+-1
 	sudo systemctl enable camconfd.service
 	sudo systemctl enable camflowd.service
 
