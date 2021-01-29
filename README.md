@@ -16,4 +16,4 @@ Automated Travis test verifies:
 
 ## Documentation
 
-Please click [here](http://camflow.org) to see the documentation.
+Please click [here](https://camflow.org/#source) to see the documentation.
