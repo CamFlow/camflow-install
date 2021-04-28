@@ -1,10 +1,10 @@
-kernel-version=5.9.11
-lsm-version=0.7.1
+kernel-version=5.11.2
+lsm-version=0.7.2
 lib-version=0.5.3
 config-version=0.5.1
 cli-version=0.2.1
 service-version=0.3.1
-package-version=0.13.0
+package-version=0.14.0
 fedora-version=33
 
 prepare_provenance:
