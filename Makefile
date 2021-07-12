@@ -3,7 +3,7 @@ lsm-version=0.7.2
 lib-version=0.5.3
 config-version=0.5.1
 cli-version=0.2.1
-service-version=0.3.1
+service-version=0.3.2
 package-version=0.14.0
 fedora-version=33
 

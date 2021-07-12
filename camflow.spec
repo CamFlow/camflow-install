@@ -1,13 +1,13 @@
 Summary: Install all CamFlow dependencies.
 Name: camflow
-Version: 0.14.0
+Version: 0.14.1
 Release: 1
 Group: audit/camflow
 License: GPLv2
 Source: %{expand:%%(pwd)}
 BuildRoot: %{_topdir}/BUILD/%{name}-%{version}-%{release}
 Requires: camconfd = 0.5.1-1
-Requires: camflowd = 0.3.1-1
+Requires: camflowd = 0.3.2-1
 Requires: camflow-cli = 0.2.1-1
 Requires: libprovenance = 0.5.3-1
 Requires: kernel = 5.11.17-200.camflow.fc33
