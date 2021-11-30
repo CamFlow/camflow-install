@@ -4,7 +4,7 @@ orbs:
 jobs:
     build:
         docker:
-            - image: fedora:33
+            - image: fedora:35
         resource_class: large
         working_directory: ~/build
         steps:
@@ -50,31 +50,31 @@ jobs:
                 cloudsmith-repository: camflow/camflow
                 package-path: output/camconfd-*.rpm
                 package-format: rpm
-                package-distribution: fedora/33
+                package-distribution: fedora/35
             - cloudsmith/publish:
                 allow-republish: true
                 cloudsmith-repository: camflow/camflow
                 package-path: output/camflowd-*.rpm
                 package-format: rpm
-                package-distribution: fedora/33
+                package-distribution: fedora/35
             - cloudsmith/publish:
                 allow-republish: true
                 cloudsmith-repository: camflow/camflow
                 package-path: output/libprovenance-*.rpm
                 package-format: rpm
-                package-distribution: fedora/33
+                package-distribution: fedora/35
             - cloudsmith/publish:
                 allow-republish: true
                 cloudsmith-repository: camflow/camflow
                 package-path: output/camflow-cli-*.rpm
                 package-format: rpm
-                package-distribution: fedora/33
+                package-distribution: fedora/35
             - cloudsmith/publish:
                 allow-republish: true
                 cloudsmith-repository: camflow/camflow
                 package-path: output/camflow-0*.rpm
                 package-format: rpm
-                package-distribution: fedora/33
+                package-distribution: fedora/35
 workflows:
   version: 2
   build-and-deploy:
