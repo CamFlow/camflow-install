@@ -1,4 +1,4 @@
-kernel-version=5.15.4
+kernel-version=5.15.5
 lsm-version=0.8.0
 lib-version=0.5.4
 config-version=0.5.2
