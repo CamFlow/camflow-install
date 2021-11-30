@@ -49,7 +49,7 @@ config:
 
 config_cirlce:
 	@echo "Starting kernel configuration ..."
-	cd ./build/camflow-patches && $(MAKE) config_travis
+	cd ./build/camflow-patches && $(MAKE) config_circle
 
 compile_lsm:
 	@echo "Building kernel ..."
