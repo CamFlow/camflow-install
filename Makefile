@@ -1,11 +1,11 @@
-kernel-version=5.15.5
-lsm-version=0.8.0
-lib-version=0.5.4
+kernel-version=6.0.5
+lsm-version=0.9.0
+lib-version=0.5.5
 config-version=0.5.2
 cli-version=0.2.2
 service-version=0.3.3
-package-version=0.15.0
-fedora-version=35
+package-version=0.16.0
+fedora-version=36
 
 prepare_provenance:
 	mkdir -p build
