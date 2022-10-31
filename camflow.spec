@@ -10,15 +10,15 @@ Requires: camconfd = 0.5.3-1
 Requires: camflowd = 0.3.3-1
 Requires: camflow-cli = 0.2.3-1
 Requires: libprovenance = 0.5.5-1
-Requires: kernel = 6.0.5-200.camflow.f36
-Requires: kernel-core = 6.0.5-200.camflow.f36
-Requires: kernel-modules = 6.0.5-200.camflow.f36
-Requires: kernel-devel = 6.0.5-200.camflow.f36
-Requires: kernel-headers = 6.0.5-200.camflow.f36
-Requires: kernel-cross-headers = 6.0.5-200.camflow.f36
-Requires: kernel-cross-headers = 6.0.5-200.camflow.f36
-Requires: kernel-modules-extra = 6.0.5-200.camflow.f36
-Requires: kernel-modules-internal = 6.0.5-200.camflow.f36
+Requires: kernel = 6.0.5-200.camflow.fc36
+Requires: kernel-core = 6.0.5-200.camflow.fc36
+Requires: kernel-modules = 6.0.5-200.camflow.fc36
+Requires: kernel-devel = 6.0.5-200.camflow.fc36
+Requires: kernel-headers = 6.0.5-200.camflow.fc36
+Requires: kernel-cross-headers = 6.0.5-200.camflow.fc36
+Requires: kernel-cross-headers = 6.0.5-200.camflow.fc36
+Requires: kernel-modules-extra = 6.0.5-200.camflow.fc36
+Requires: kernel-modules-internal = 6.0.5-200.camflow.fc36
 
 %description
 %{summary}
