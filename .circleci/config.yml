@@ -5,7 +5,7 @@ jobs:
     build:
         docker:
             - image: fedora:36
-        resource_class: large
+        resource_class: xlarge
         working_directory: ~/build
         steps:
             - checkout
