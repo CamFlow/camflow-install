@@ -1,8 +1,8 @@
 kernel-version=6.0.5
 lsm-version=0.9.0
 lib-version=0.5.5
-config-version=0.5.2
-cli-version=0.2.2
+config-version=0.5.3
+cli-version=0.2.3
 service-version=0.3.3
 package-version=0.16.0
 fedora-version=36
